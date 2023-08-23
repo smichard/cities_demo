@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demo-1
+  name: dpl-demo
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: demo-1
+    spec:
+      containers:
+      - image: eu.gcr.io/tto-demo/k8s-demo-app
+        imagePullPolicy: Always
+        name: demo-container
+        ports:
+        - containerPort: 80
+      dnsPolicy: ClusterFirst
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: srv-demo
+  namespace: default
+  labels:
+    app: demo-1
+    app.kubernetes.io/managed-by: gcp-cloud-build-deploy
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+  selector:
+    app: demo-1
+  type: LoadBalancer
+  loadBalancerIP: 34.89.155.147
