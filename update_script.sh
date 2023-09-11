@@ -7,6 +7,4 @@ if [ -f ./website/index_2.html ]; then
         mv website/index_tmp.html website/index_4.html
 		echo changes performed
 fi
-git add -A
-git commit -m "demo"
-echo file changes added to git repository 
+echo file changes
