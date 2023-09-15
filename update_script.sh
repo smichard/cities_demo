@@ -7,4 +7,3 @@ if [ -f ./website/index_2.html ]; then
         mv website/index_tmp.html website/index_4.html
 		echo changes performed
 fi
-echo file changes
