@@ -1,0 +1,103 @@
+schemaVersion: 2.2.0
+metadata:
+  attributes:
+    metadata-name-field: generateName
+    metadata-name-original-value: cities_demo
+  name: cities-demo
+  namespace: smichard-devspaces
+attributes:
+  che-theia.eclipse.org/sidecar-policy: mergeImage
+  controller.devfile.io/devworkspace-config:
+    name: devworkspace-config
+    namespace: openshift-operators
+  controller.devfile.io/scc: container-build
+  controller.devfile.io/storage-type: per-user
+  dw.metadata.annotations:
+    che.eclipse.org/devfile-source: |
+      url:
+        location: https://github.com/smichard/cities_demo
+      factory:
+        params: url=https://github.com/smichard/cities_demo
+projects:
+  - git:
+      remotes:
+        origin: https://github.com/smichard/cities_demo.git
+    name: cities-demo
+components:
+  - container:
+      env:
+        - name: CHE_DASHBOARD_URL
+          value: https://devspaces.apps.ocp.michard.cc
+        - name: CHE_PLUGIN_REGISTRY_URL
+          value: https://devspaces.apps.ocp.michard.cc/plugin-registry/v3
+        - name: CHE_PLUGIN_REGISTRY_INTERNAL_URL
+          value: http://plugin-registry.openshift-operators.svc:8080/v3
+        - name: CLUSTER_CONSOLE_URL
+          value: https://console-openshift-console.apps.ocp.michard.cc
+        - name: CLUSTER_CONSOLE_TITLE
+          value: OpenShift console
+        - name: OPENVSX_REGISTRY_URL
+          value: ''
+      image: registry.redhat.io/devspaces/udi-rhel8@sha256:de81824e6ccf82a286a28566432d4f43928a989c570578c4b4df9484ef136cca
+      sourceMapping: /projects
+    name: universal-developer-image
+  - name: tooling-container
+    container:
+      env:
+        - name: DOCKER_HOST
+          value: 'tcp://127.0.0.1:2475'
+        - name: CONTAINER_HOST
+          value: 'tcp://127.0.0.1:2475'
+        - name: TESTCONTAINERS_RYUK_DISABLED
+          value: 'true'
+        - name: TESTCONTAINERS_CHECKS_DISABLE
+          value: 'true'
+      image: quay.io/mloriedo/universal-developer-image:kubedock
+      memoryRequest: 2Gi
+      memoryLimit: 8Gi
+      cpuRequest: 1000m
+      cpuLimit: 4000m
+      endpoints:
+        - exposure: none
+          name: kubedock
+          protocol: tcp
+          targetPort: 2475
+commands:
+  - id: start-kubedock
+    exec:
+      label: '1. Start kubedock'
+      component: tooling-container
+      commandLine: kubedock server --port-forward
+  - id: test
+    exec:
+      label: '2. Test'
+      component: tooling-container
+      commandLine: ./gradlew test
+  - id: run
+    exec:
+      label: '3. Run'
+      component: tooling-container
+      commandLine: ./gradlew run
+  - id: docker-run
+    exec:
+      label: '4. docker run sample'
+      component: tooling-container
+      commandLine: docker run --name httpd -d -p 8080:8080 python python -m http.server 8080
+  - id: podman-run
+    exec:
+      label: '5. podman run sample'
+      component: tooling-container
+      commandLine: podman --remote --url "tcp://127.0.0.1:2475" run --name httpd -d -p 8080:8080 python python -m http.server 8080
+  - id: podman-build
+    exec:
+      label: '6. podman build app'
+      component: tooling-container
+      commandLine: podman build -t current-app -f Containerfile
+  - id: podman-run-app
+    exec:
+      label: '7. podman run sample'
+      component: tooling-container
+      commandLine: podman --remote --url "tcp://127.0.0.1:2475" run -d --rm -p 8080:8080 current-app
+events:
+  postStart:
+    - podman-build
