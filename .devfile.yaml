@@ -98,6 +98,6 @@ commands:
       label: '7. podman run sample'
       component: tooling-container
       commandLine: podman --remote --url "tcp://127.0.0.1:2475" run -d --rm -p 8080:8080 current-app
-events:
-  postStart:
-    - podman-build
+#events:
+#  postStart:
+#    - podman-build
