@@ -41,14 +41,50 @@ components:
           value: OpenShift console
         - name: OPENVSX_REGISTRY_URL
           value: ''
-  - name: tooling-container
+  - name: my-container
     container:
       image: quay.io/michard/cities
       memoryLimit: 8Gi
-      command: ['sleep', 'infinity']
+  - name: tooling-container
+    container:
+      image: quay.io/mloriedo/universal-developer-image:kubedock
+      memoryRequest: 2Gi
+      memoryLimit: 8Gi
+      cpuRequest: 1000m
+      cpuLimit: 4000m
+      endpoints:
+        - exposure: none
+          name: kubedock
+          protocol: tcp
+          targetPort: 2475      
 commands:
   - id: echo-hello-world
     exec:
       component: tooling-container
       commandLine: echo hello world
       workingDir: /
+  - id: start-kubedock
+    exec:
+      label: '1. Start kubedock'
+      component: tooling-container
+      commandLine: kubedock server --port-forward
+  - id: test
+    exec:
+      label: '2. Test'
+      component: tooling-container
+      commandLine: ./gradlew test
+  - id: run
+    exec:
+      label: '3. Run'
+      component: tooling-container
+      commandLine: ./gradlew run
+  - id: docker-run
+    exec:
+      label: '4. docker run sample'
+      component: tooling-container
+      commandLine: docker run --name httpd -d -p 8080:8080 python python -m http.server 8080
+  - id: podman-run
+    exec:
+      label: '5. podman run sample'
+      component: tooling-container
+      commandLine: podman --remote --url "tcp://127.0.0.1:2475" run --name httpd -d -p 8080:8080 python python -m http.server 8080
