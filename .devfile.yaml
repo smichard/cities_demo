@@ -43,7 +43,7 @@ components:
           value: ''
   - name: tooling-container
     container:
-      image: smichard/ubuntu_cloud_tools
+      image: quay.io/michard/cities
 
 commands:
   - id: echo-hello-world
