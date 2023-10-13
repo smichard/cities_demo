@@ -41,14 +41,11 @@ components:
           value: OpenShift console
         - name: OPENVSX_REGISTRY_URL
           value: ''
-  - name: tooling-container
-    container:
-      image: quay.io/michard/cities
 commands:
   - id: start-kubedock
     exec:
       label: '1. Test'
-      component: tooling-container
+      component: universal-developer-image
       commandLine: echo hello world
 #  - id: podman-build
 #    exec:
