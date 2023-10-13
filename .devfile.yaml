@@ -43,7 +43,7 @@ components:
           value: ''
   - name: tooling-container
     container:
-      image: registry.access.redhat.com/ubi9/podman:9.2-15
+      image: quay.io/michard/cities
 commands:
   - id: start-kubedock
     exec:
