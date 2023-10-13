@@ -1,10 +1,10 @@
-schemaVersion: 2.2.0
+schemaVersion: "2.2.0"
 metadata:
+  name: cities-demo
+  namespace: smichard-devspaces
   attributes:
     metadata-name-field: generateName
     metadata-name-original-value: cities_demo
-  name: cities-demo
-  namespace: smichard-devspaces
 attributes:
   che-theia.eclipse.org/sidecar-policy: mergeImage
   controller.devfile.io/devworkspace-config:
@@ -19,12 +19,15 @@ attributes:
       factory:
         params: url=https://github.com/smichard/cities_demo
 projects:
-  - git:
+  - name: cities-demo
+    git:
       remotes:
         origin: https://github.com/smichard/cities_demo.git
-    name: cities-demo
 components:
-  - container:
+  - name: universal-developer-image
+    container:
+      image: registry.redhat.io/devspaces/udi-rhel8@sha256:de81824e6ccf82a286a28566432d4f43928a989c570578c4b4df9484ef136cca
+      sourceMapping: /projects
       env:
         - name: CHE_DASHBOARD_URL
           value: https://devspaces.apps.ocp.michard.cc
@@ -38,11 +41,13 @@ components:
           value: OpenShift console
         - name: OPENVSX_REGISTRY_URL
           value: ''
-      image: registry.redhat.io/devspaces/udi-rhel8@sha256:de81824e6ccf82a286a28566432d4f43928a989c570578c4b4df9484ef136cca
-      sourceMapping: /projects
-    name: universal-developer-image
   - name: tooling-container
     container:
+      image: quay.io/mloriedo/universal-developer-image:kubedock
+      memoryRequest: 2Gi
+      memoryLimit: 8Gi
+      cpuRequest: 1000m
+      cpuLimit: 4000m
       env:
         - name: DOCKER_HOST
           value: 'tcp://127.0.0.1:2475'
@@ -52,14 +57,9 @@ components:
           value: 'true'
         - name: TESTCONTAINERS_CHECKS_DISABLE
           value: 'true'
-      image: quay.io/mloriedo/universal-developer-image:kubedock
-      memoryRequest: 2Gi
-      memoryLimit: 8Gi
-      cpuRequest: 1000m
-      cpuLimit: 4000m
       endpoints:
-        - exposure: none
-          name: kubedock
+        - name: kubedock
+          exposure: none
           protocol: tcp
           targetPort: 2475
 commands:
