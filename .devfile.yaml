@@ -44,7 +44,8 @@ components:
   - name: tooling-container
     container:
       image: quay.io/michard/cities
-
+      memoryLimit: 8Gi
+      command: ['sleep', 'infinity']
 commands:
   - id: echo-hello-world
     exec:
