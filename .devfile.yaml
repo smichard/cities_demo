@@ -43,7 +43,7 @@ components:
           value: ''
   - name: tooling-container
     container:
-      image: ubuntu:latest
+      image: smichard/ubuntu_cloud_tools
 
 commands:
   - id: echo-hello-world
