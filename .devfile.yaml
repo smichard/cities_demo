@@ -50,11 +50,6 @@ commands:
       label: '1. Test'
       component: tooling-container
       commandLine: echo hello world
-  - id: test
-    exec:
-      label: '2. Podman Test'
-      component: tooling-container
-      commandLine: podman --version
 #  - id: podman-build
 #    exec:
 #      label: '6. podman build app'
