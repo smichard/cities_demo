@@ -43,7 +43,7 @@ components:
           value: ''
   - name: my-container
     container:
-      image: quay.io/michard/cities
+      image: quay.io/devfile/universal-developer-image:ubi8-latest
       memoryLimit: 8Gi
   - name: tooling-container
     container:
@@ -70,26 +70,21 @@ commands:
       commandLine: kubedock server --port-forward
   - id: pull
     exec:
-      label: '2. Pull'
-      component: tooling-container
-      commandLine: podman pull quay.io/michard/cities
+      label: '2. Pull Base Image'
+      component: universal-developer-image
+      commandLine: podman pull registry.access.redhat.com/ubi8/nginx-122
+  - id: build
+    exec:
+      label: '3. Build Current State'
+      component: universal-developer-image
+      commandLine: podman build -t current-state -f Containerfile
   - id: cities-podman-run
     exec:
-      label: '3. Podman Run Cities Container'
-      component: tooling-container
-      commandLine: podman --remote --url "tcp://127.0.0.1:2475" run --name cities -d -p 8080:8080 quay.io/michard/cities
-  - id: cities-docker-run
-    exec:
-      label: '3.5 Podman Run Cities Container'
-      component: tooling-container
-      commandLine: docker run --name cities -d -p 8080:8080 quay.io/michard/cities
-  - id: docker-run
-    exec:
-      label: '4. docker run sample'
-      component: tooling-container
-      commandLine: docker run --name httpd -d -p 8080:8080 python python -m http.server 8080
+      label: '4. Podman Run Cities Container'
+      component: universal-developer-image
+      commandLine: podman --remote --url "tcp://127.0.0.1:2475" run --name cities -d -p 8090:8080 quay.io/michard/cities
   - id: podman-run
     exec:
-      label: '5. podman run sample'
+      label: '5. Podman Remove Cities Container'
       component: tooling-container
-      commandLine: podman --remote --url "tcp://127.0.0.1:2475" run --name httpd -d -p 8080:8080 python python -m http.server 8080
+      commandLine: podman --remote --url "tcp://127.0.0.1:2475" rm cities
