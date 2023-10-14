@@ -43,7 +43,7 @@ components:
           value: ''
   - name: my-container
     container:
-      image: quay.io/michard/developer_image:latest
+      image: quay.io/michard/cities
       memoryLimit: 8Gi
   - name: tooling-container
     container:
