@@ -43,7 +43,7 @@ components:
           value: ''
   - name: my-container
     container:
-      image: quay.io/devfile/universal-developer-image:ubi8-latest
+      image: quay.io/michard/developer_image:latest
       memoryLimit: 8Gi
   - name: tooling-container
     container:
