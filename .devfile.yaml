@@ -61,7 +61,7 @@ commands:
   - id: echo-hello-world
     exec:
       component: tooling-container
-      commandLine: echo hello world
+      commandLine: ls && echo hello world
       workingDir: /
   - id: start-kubedock
     exec:
