@@ -8,16 +8,8 @@
       "redhat.vscode-openshift-connector",
       "redhat.fabric8-analytics",
       "redhat.vscode-tekton-pipelines",
-      "hashicorp.terraform",
-      "reditorsupport.r",
-      "esbenp.prettier",
-      "pkief.material-icon-theme",
-      "vscode-icons-team.vscode-icons",
-      "felixicaza.andromeda",
-      "nocalhost.nocalhost",
-      "ms-kubernetes-tools.vscode-kubernetes-tools",
       "googlecloudtools.cloudcode",
-      "streetsidesoftware.code-spell-checker",
-      "vscode.simple-browser"
+      "esbenp.prettier-vscode",
+      "redhat.ansible"
     ]
 }
