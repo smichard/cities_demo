@@ -1,6 +1,6 @@
 schemaVersion: "2.2.0"
 metadata:
-  name: devfile-demo
+  name: cities-demo
   namespace: smichard-devspaces
   attributes:
     metadata-name-field: generateName
@@ -68,16 +68,21 @@ commands:
       label: '1. Start kubedock'
       component: tooling-container
       commandLine: kubedock server --port-forward
-  - id: test
+  - id: pull
     exec:
-      label: '2. Test'
+      label: '2. Pull'
       component: tooling-container
-      commandLine: ./gradlew test
-  - id: run
+      commandLine: podman pull quay.io/michard/cities
+  - id: cities-podman-run
     exec:
-      label: '3. Run'
+      label: '3. Podman Run Cities Container'
       component: tooling-container
-      commandLine: ./gradlew run
+      commandLine: podman --remote --url "tcp://127.0.0.1:2475" run --name cities -d -p 8080:8080 quay.io/michard/cities
+  - id: cities-docker-run
+    exec:
+      label: '3.5 Podman Run Cities Container'
+      component: tooling-container
+      commandLine: docker run --name cities -d -p 8080:8080 quay.io/michard/cities
   - id: docker-run
     exec:
       label: '4. docker run sample'
