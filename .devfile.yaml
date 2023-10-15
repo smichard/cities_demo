@@ -59,7 +59,7 @@ components:
           value: 'true'
       endpoints:
         - exposure: none
-          name: kubedock
+          name: dockkube
           protocol: tcp
           targetPort: 2476
   - name: tooling-container
