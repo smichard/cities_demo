@@ -58,11 +58,6 @@ components:
           protocol: tcp
           targetPort: 2475      
 commands:
-  - id: echo-hello-world
-    exec:
-      component: tooling-container
-      commandLine: ls && echo hello world
-      workingDir: /
   - id: start-kubedock
     exec:
       label: '1. Start kubedock'
