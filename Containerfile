@@ -7,4 +7,4 @@ ADD nginx_config/nginx_cfg/*.conf "${NGINX_CONFIGURATION_PATH}"
 ADD website/ .
 
 # Run script uses standard ways to run the application
-CMD nginx -g "daemon off;"
+CMD ["nginx", "-g", "daemon off;"]
