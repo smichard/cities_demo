@@ -41,27 +41,27 @@ components:
           value: OpenShift console
         - name: OPENVSX_REGISTRY_URL
           value: ''
-  - name: my-container
-    container:
-      image: quay.io/michard/developer_image
-      memoryRequest: 2Gi
-      memoryLimit: 8Gi
-      cpuRequest: 1000m
-      cpuLimit: 4000m
-      env:
-        - name: DOCKER_HOST
-          value: 'tcp://127.0.0.1:2476'
-        - name: CONTAINER_HOST
-          value: 'tcp://127.0.0.1:2476'
-        - name: TESTCONTAINERS_RYUK_DISABLED
-          value: 'true'
-        - name: TESTCONTAINERS_CHECKS_DISABLE
-          value: 'true'
-      endpoints:
-        - exposure: none
-          name: dockkube
-          protocol: tcp
-          targetPort: 2476
+#  - name: my-container
+#    container:
+#      image: quay.io/michard/developer_image
+#      memoryRequest: 2Gi
+#      memoryLimit: 8Gi
+#      cpuRequest: 1000m
+#      cpuLimit: 4000m
+#      env:
+#        - name: DOCKER_HOST
+#          value: 'tcp://127.0.0.1:2476'
+#        - name: CONTAINER_HOST
+#          value: 'tcp://127.0.0.1:2476'
+#        - name: TESTCONTAINERS_RYUK_DISABLED
+#          value: 'true'
+#        - name: TESTCONTAINERS_CHECKS_DISABLE
+#          value: 'true'
+#      endpoints:
+#        - exposure: none
+#          name: dockkube
+#          protocol: tcp
+#          targetPort: 2476
   - name: tooling-container
     container:
       image: quay.io/mloriedo/universal-developer-image:kubedock
