@@ -44,7 +44,6 @@ components:
   - name: tooling-container
     container:
       image: quay.io/michard/developer_image
-      sourceMapping: /projects
       #image: quay.io/mloriedo/universal-developer-image:kubedock
       memoryRequest: 2Gi
       memoryLimit: 8Gi
