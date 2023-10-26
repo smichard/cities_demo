@@ -1,0 +1,17 @@
+apiVersion: skaffold/v4beta7
+kind: Config
+metadata:
+  name: cities-demo-dev
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+    - image: quay.io/michard/cities
+      context: .
+      docker:
+        dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - k8s/deployment.yml
+    - k8s/route.yml
+    - k8s/service.yml
