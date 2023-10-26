@@ -11,8 +11,6 @@ build:
       docker:
         dockerfile: Containerfile
       sync:
-#        infer:
-#        - 'website/*.html'
         manual:
         - src: 'website/*.html'
           dest: /usr/share/nginx/html/
