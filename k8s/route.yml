@@ -8,6 +8,7 @@ metadata:
   annotations:
     openshift.io/host.generated: 'true'
 spec:
+  host: cities-demo-dev.apps.ocp.michard.cc
   to:
     kind: Service
     name: cities-demo-dev

@@ -8,7 +8,7 @@ metadata:
     app.openshift.io/vcs-uri: 'https://github.com/smichard/cities_demo'
   generation: 72
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: cities-demo-dev
