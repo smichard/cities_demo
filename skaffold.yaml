@@ -9,7 +9,7 @@ build:
     - image: quay.io/michard/cities
       context: .
       docker:
-        dockerfile: Containerfile
+        dockerfile: Containerfile_skaffold
       sync:
         manual:
         - src: 'website/*.html'
