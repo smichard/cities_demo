@@ -1,85 +1,20 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: cities-demo
-  namespace: cities-demo
-  uid: 3c95d195-59df-4cdf-b2cf-7159017af5ee
-  resourceVersion: '33032'
-  creationTimestamp: '2023-10-02T09:34:53Z'
+  name: cities-demo-dev
+  namespace: dev
   labels:
-    app: cities-demo
-    app.kubernetes.io/component: cities-demo
-    app.kubernetes.io/instance: cities-demo
-    app.kubernetes.io/name: cities-demo
-    app.kubernetes.io/part-of: cities-demo-app
-    app.openshift.io/runtime: nginx
-    app.openshift.io/runtime-version: 1.20-ubi7
+    app: cities-demo-dev
   annotations:
     app.openshift.io/vcs-ref: main
     app.openshift.io/vcs-uri: 'https://github.com/smichard/cities_demo'
-    openshift.io/generated-by: OpenShiftWebConsole
-  managedFields:
-    - manager: Mozilla
-      operation: Update
-      apiVersion: v1
-      time: '2023-10-02T09:34:53Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            .: {}
-            'f:app.openshift.io/vcs-ref': {}
-            'f:app.openshift.io/vcs-uri': {}
-            'f:openshift.io/generated-by': {}
-          'f:labels':
-            .: {}
-            'f:app': {}
-            'f:app.kubernetes.io/component': {}
-            'f:app.kubernetes.io/instance': {}
-            'f:app.kubernetes.io/name': {}
-            'f:app.kubernetes.io/part-of': {}
-            'f:app.openshift.io/runtime': {}
-            'f:app.openshift.io/runtime-version': {}
-        'f:spec':
-          'f:internalTrafficPolicy': {}
-          'f:ports':
-            .: {}
-            'k:{"port":8080,"protocol":"TCP"}':
-              .: {}
-              'f:name': {}
-              'f:port': {}
-              'f:protocol': {}
-              'f:targetPort': {}
-            'k:{"port":8443,"protocol":"TCP"}':
-              .: {}
-              'f:name': {}
-              'f:port': {}
-              'f:protocol': {}
-              'f:targetPort': {}
-          'f:selector': {}
-          'f:sessionAffinity': {}
-          'f:type': {}
 spec:
-  clusterIP: 172.30.245.100
-  ipFamilies:
-    - IPv4
   ports:
     - name: 8080-tcp
       protocol: TCP
       port: 8080
       targetPort: 8080
-    - name: 8443-tcp
-      protocol: TCP
-      port: 8443
-      targetPort: 8443
-  internalTrafficPolicy: Cluster
-  clusterIPs:
-    - 172.30.245.100
-  type: ClusterIP
-  ipFamilyPolicy: SingleStack
-  sessionAffinity: None
   selector:
-    app: cities-demo
-    deployment: cities-demo
-status:
-  loadBalancer: {}
+    app: cities-demo-dev
+    deployment: cities-demo-dev
+  type: ClusterIP
