@@ -28,10 +28,6 @@ components:
     container:
       image: quay.io/michard/developer_image:dev
       sourceMapping: /projects
-      memoryRequest: 2Gi
-      memoryLimit: 8Gi
-      cpuRequest: 1000m
-      cpuLimit: 4000m
       env:
         - name: CHE_DASHBOARD_URL
           value: https://devspaces.apps.ocp.michard.cc
@@ -45,44 +41,3 @@ components:
           value: OpenShift console
         - name: OPENVSX_REGISTRY_URL
           value: ''
-        #- name: ENV KUBEDOCK_ENABLED
-        #  value: 'true'
-        - name: DOCKER_HOST
-          value: 'tcp://127.0.0.1:2475'
-        - name: CONTAINER_HOST
-          value: 'tcp://127.0.0.1:2475'
-        - name: TESTCONTAINERS_RYUK_DISABLED
-          value: 'true'
-        - name: TESTCONTAINERS_CHECKS_DISABLE
-          value: 'true'
-      endpoints:
-        - exposure: none
-          name: kubedock
-          protocol: tcp
-          targetPort: 2475    
-commands:
-  - id: start-kubedock
-    exec:
-      label: '1. Start kubedock'
-      component: universal-developer-image
-      commandLine: kubedock server --port-forward
-  - id: pull
-    exec:
-      label: '2. Pull Base Image'
-      component: universal-developer-image
-      commandLine: podman pull registry.access.redhat.com/ubi8/nginx-122
-  - id: build
-    exec:
-      label: '3. Build Current State'
-      component: universal-developer-image
-      commandLine: podman build -t current-state -f Containerfile
-  - id: cities-podman-run
-    exec:
-      label: '4. Podman Run Cities Container'
-      component: universal-developer-image
-      commandLine: podman --remote --url "tcp://127.0.0.1:2475" run --name cities -d -p 8090:8080 quay.io/michard/cities
-  - id: podman-run
-    exec:
-      label: '5. Podman Remove Cities Container'
-      component: universal-developer-image
-      commandLine: podman --remote --url "tcp://127.0.0.1:2475" rm cities
