@@ -46,7 +46,7 @@ components:
         - name: OPENVSX_REGISTRY_URL
           value: ''
         - name: ENV KUBEDOCK_ENABLED
-          value: true
+          value: 'true'
         - name: DOCKER_HOST
           value: 'tcp://127.0.0.1:2475'
         - name: CONTAINER_HOST
