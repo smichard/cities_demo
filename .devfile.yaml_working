@@ -26,12 +26,8 @@ projects:
 components:
   - name: universal-developer-image
     container:
-      image: quay.io/michard/developer_image:dev
+      image: registry.redhat.io/devspaces/udi-rhel8@sha256:de81824e6ccf82a286a28566432d4f43928a989c570578c4b4df9484ef136cca
       sourceMapping: /projects
-      memoryRequest: 2Gi
-      memoryLimit: 8Gi
-      cpuRequest: 1000m
-      cpuLimit: 4000m
       env:
         - name: CHE_DASHBOARD_URL
           value: https://devspaces.apps.ocp.michard.cc
@@ -45,8 +41,17 @@ components:
           value: OpenShift console
         - name: OPENVSX_REGISTRY_URL
           value: ''
-        - name: ENV KUBEDOCK_ENABLED
-          value: true
+        #- name: ENV KUBEDOCK_ENABLED
+        #  value: true
+  - name: tooling-container
+    container:
+      image: quay.io/michard/developer_image:dev
+      #image: quay.io/mloriedo/universal-developer-image:kubedock
+      memoryRequest: 2Gi
+      memoryLimit: 8Gi
+      cpuRequest: 1000m
+      cpuLimit: 4000m
+      env:
         - name: DOCKER_HOST
           value: 'tcp://127.0.0.1:2475'
         - name: CONTAINER_HOST
@@ -59,12 +64,12 @@ components:
         - exposure: none
           name: kubedock
           protocol: tcp
-          targetPort: 2475    
+          targetPort: 2475      
 commands:
   - id: start-kubedock
     exec:
       label: '1. Start kubedock'
-      component: universal-developer-image
+      component: tooling-container
       commandLine: kubedock server --port-forward
   - id: pull
     exec:
@@ -84,5 +89,5 @@ commands:
   - id: podman-run
     exec:
       label: '5. Podman Remove Cities Container'
-      component: universal-developer-image
+      component: tooling-container
       commandLine: podman --remote --url "tcp://127.0.0.1:2475" rm cities
