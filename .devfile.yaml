@@ -26,7 +26,11 @@ projects:
 components:
   - name: universal-developer-image
     container:
-      image: quay.io/michard/developer_image:dev
+      image: quay.io/michard/developer_image
+      memoryRequest: 2Gi
+      memoryLimit: 16Gi
+      cpuRequest: 1000m
+      cpuLimit: 4000m
       sourceMapping: /projects
       env:
         - name: CHE_DASHBOARD_URL
