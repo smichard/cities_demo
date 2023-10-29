@@ -26,7 +26,8 @@ projects:
 components:
   - name: universal-developer-image
     container:
-      image: quay.io/michard/developer_image
+      #image: quay.io/michard/developer_image
+      image: quay.io/centos/centos:stream9
       memoryRequest: 2Gi
       memoryLimit: 16Gi
       cpuRequest: 1000m
