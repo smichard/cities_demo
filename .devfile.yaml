@@ -40,8 +40,6 @@ components:
           value: https://console-openshift-console.apps.ocp.michard.cc
         - name: CLUSTER_CONSOLE_TITLE
           value: OpenShift console
-        - name: KUBEDOCK_ENABLED
-          value: 'true'
       endpoints:
         - exposure: none
           name: kubedock
