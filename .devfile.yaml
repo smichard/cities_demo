@@ -41,7 +41,7 @@ components:
         - name: CLUSTER_CONSOLE_TITLE
           value: OpenShift console
         - name: KUBEDOCK_ENABLED
-          value: TRUE
+          value: 'true'
       endpoints:
         - exposure: none
           name: kubedock
