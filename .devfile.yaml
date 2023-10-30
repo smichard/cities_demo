@@ -71,7 +71,3 @@ commands:
       label: '5. Podman Remove Cities Container'
       component: universal-developer-image
       commandLine: echo hello world
-events:
-  postStart:
-    - pull
-    - build
