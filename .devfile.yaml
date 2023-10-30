@@ -65,12 +65,12 @@ commands:
     exec:
       label: '4. Podman Run Cities Container'
       component: universal-developer-image
-      commandLine: 
+      commandLine: echo hello world
   - id: podman-run
     exec:
       label: '5. Podman Remove Cities Container'
       component: universal-developer-image
-      commandLine: 
+      commandLine: echo hello world
 events:
   postStart:
     - pull
