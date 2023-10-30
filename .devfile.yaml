@@ -40,21 +40,13 @@ components:
           value: https://console-openshift-console.apps.ocp.michard.cc
         - name: CLUSTER_CONSOLE_TITLE
           value: OpenShift console
-        - name: OPENVSX_REGISTRY_URL
-          value: ''
-        - name: DOCKER_HOST
-          value: 'tcp://127.0.0.1:2475'
-        - name: CONTAINER_HOST
-          value: 'tcp://127.0.0.1:2475'
-        - name: TESTCONTAINERS_RYUK_DISABLED
-          value: 'true'
-        - name: TESTCONTAINERS_CHECKS_DISABLE
-          value: 'true'
+        - name: KUBEDOCK_ENABLED
+          value: true
       endpoints:
         - exposure: none
           name: kubedock
           protocol: tcp
-          targetPort: 2475      
+          targetPort: 2475   
 commands:
   - id: start-kubedock
     exec:
@@ -75,9 +67,13 @@ commands:
     exec:
       label: '4. Podman Run Cities Container'
       component: universal-developer-image
-      commandLine: podman --remote --url "tcp://127.0.0.1:2475" run --name cities -d -p 8080:8080 quay.io/michard/cities
+      commandLine: 
   - id: podman-run
     exec:
       label: '5. Podman Remove Cities Container'
       component: universal-developer-image
-      commandLine: podman --remote --url "tcp://127.0.0.1:2475" rm cities
+      commandLine: 
+events:
+  postStart:
+    - pull
+    - build
