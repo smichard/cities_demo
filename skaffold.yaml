@@ -7,9 +7,11 @@ build:
     sha256: {}
   artifacts:
     - image: quay.io/michard/cities
-      context: .
-      docker:
-        dockerfile: Containerfile_skaffold
+      custom:
+        buildCommand: ./custom_build.sh
+        dependencies:
+          paths:
+          - .
       sync:
         manual:
         - src: 'website/*.html'
