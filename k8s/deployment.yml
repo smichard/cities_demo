@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: cities-demo-dev
-          image: quay.io/michard/cities:latest
+          image: quay.io/michard/cities:skaffold
           ports:
             - containerPort: 8080
               protocol: TCP
