@@ -7,10 +7,6 @@ spec:
   - name: shared-workspace
   - name: registry-credentials
   params:
-  - name: deployment-name
-    type: string
-    description: name of the deployment to be patched
-    default: test
   - name: git-url
     type: string
     description: url of the git repo for the code of deployment
@@ -26,7 +22,7 @@ spec:
   - name: TARGET_IMAGE
     type: string
     description: image to be build from the code
-    default: quay.io/michard/cities:testing
+    default: quay.io/michard/cities:tekton
   - name: message
     type: string
     description: "The message to send to the Matrix room"
