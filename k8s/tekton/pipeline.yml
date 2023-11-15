@@ -7,6 +7,9 @@ spec:
   - name: shared-workspace
   - name: registry-credentials
   params:
+  - name: service-version
+    type: string
+    default: "1.0.0"
   - name: git-url
     type: string
     description: url of the git repo for the code of deployment
@@ -26,12 +29,18 @@ spec:
   - name: message
     type: string
     description: "The message to send to the Matrix room"
-    default: "New image build and pushed to internal and external registry"
+    default: "Cities Demo: new image build and pushed to internal and external registry. Build ID:"
   - name: notification-secret
     type: string
     description: "Secret containing the Matrix credentials"
     default: "matrix-secret"
   tasks:
+  - name: get-build-id
+    taskRef:
+      name: generate-build-id
+    params:
+      - name: base-version
+        value: $(params.service-version)
   - name: fetch-repository
     taskRef:
       name: git-clone
@@ -48,13 +57,15 @@ spec:
       value: "true"
     - name: revision
       value: $(params.git-revision)
+    runAfter:
+    - get-build-id
   - name: build-image-internal
     taskRef:
       name: buildah
       kind: ClusterTask
     params:
     - name: IMAGE
-      value: $(params.IMAGE)
+      value: $(params.IMAGE):$(tasks.get-build-id.results.build-id)
     - name: DOCKERFILE
       value: "./Containerfile"
     - name: SKIP_PUSH
@@ -70,7 +81,7 @@ spec:
       kind: ClusterTask
     params:
     - name: IMAGE
-      value: $(params.TARGET_IMAGE)
+      value: $(params.TARGET_IMAGE)-$(tasks.get-build-id.results.build-id)
     - name: DOCKERFILE
       value: "./Containerfile"
     workspaces:
@@ -85,7 +96,7 @@ spec:
       name: notification-to-matrix
     params:
     - name: message
-      value: $(params.message)
+      value: $(params.message) $(tasks.get-build-id.results.build-id)
     - name: notification-secret
       value: $(params.notification-secret)
     runAfter:
