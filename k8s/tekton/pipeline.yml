@@ -1,0 +1,97 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: build-and-push
+spec:
+  workspaces:
+  - name: shared-workspace
+  - name: registry-credentials
+  params:
+  - name: deployment-name
+    type: string
+    description: name of the deployment to be patched
+    default: test
+  - name: git-url
+    type: string
+    description: url of the git repo for the code of deployment
+    default: https://github.com/smichard/cities_demo
+  - name: git-revision
+    type: string
+    description: revision to be used from repo of the code for deployment
+    default: main
+  - name: IMAGE
+    type: string
+    description: image to be build from the code
+    default: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/cities-demo
+  - name: TARGET_IMAGE
+    type: string
+    description: image to be build from the code
+    default: quay.io/michard/cities:testing
+  - name: message
+    type: string
+    description: "The message to send to the Matrix room"
+    default: "New image build and pushed to internal and external registry"
+  - name: notification-secret
+    type: string
+    description: "Secret containing the Matrix credentials"
+    default: "matrix-secret"
+  tasks:
+  - name: fetch-repository
+    taskRef:
+      name: git-clone
+      kind: ClusterTask
+    workspaces:
+    - name: output
+      workspace: shared-workspace
+    params:
+    - name: url
+      value: $(params.git-url)
+    - name: subdirectory
+      value: ""
+    - name: deleteExisting
+      value: "true"
+    - name: revision
+      value: $(params.git-revision)
+  - name: build-image-internal
+    taskRef:
+      name: buildah
+      kind: ClusterTask
+    params:
+    - name: IMAGE
+      value: $(params.IMAGE)
+    - name: DOCKERFILE
+      value: "./Containerfile"
+    - name: SKIP_PUSH
+      value: "false"
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    runAfter:
+    - fetch-repository
+  - name: build-image-external
+    taskRef:
+      name: buildah
+      kind: ClusterTask
+    params:
+    - name: IMAGE
+      value: $(params.TARGET_IMAGE)
+    - name: DOCKERFILE
+      value: "./Containerfile"
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    - name: dockerconfig
+      workspace: registry-credentials
+    runAfter:
+    - fetch-repository
+  - name: notification-success
+    taskRef:
+      name: notification-to-matrix
+    params:
+    - name: message
+      value: $(params.message)
+    - name: notification-secret
+      value: $(params.notification-secret)
+    runAfter:
+      - build-image-internal
+      - build-image-external
