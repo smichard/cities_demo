@@ -6,29 +6,46 @@ spec:
   workspaces:
   - name: shared-workspace
   - name: registry-credentials
+  - name: github-credentials
   params:
   - name: service-version
     type: string
     default: "1.0.0"
   - name: git-url
     type: string
-    description: url of the git repo for the code of deployment
+    description: "url of the git repo for the code of deployment"
     default: https://github.com/smichard/cities_demo
   - name: git-revision
     type: string
-    description: revision to be used from repo of the code for deployment
+    description: "revision to be used from repo of the code for deployment"
     default: main
-  - name: IMAGE
+  - name: git-user-name
     type: string
-    description: image to be build from the code
+    description: "Git user name for performing git operation"
+    default: "Stephan Michard"
+  - name: git-user-mail
+    type: string
+    description: "Git user email for performing git operation"
+    default: "stephan.michard@gmail.com"
+  - name: git-ssh-url
+    type: string
+    description: "ssh url of the git repo for the code of deployment"
+    default: git@github.com:smichard/cities_demo.git
+  - name: image
+    type: string
+    description: "image to be build from the code and push to internal registry"
     default: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/cities-demo
-  - name: TARGET_IMAGE
+  - name: target-image
     type: string
-    description: image to be build from the code
+    description: "image to be build from the code and push to external registry"
     default: quay.io/michard/cities:tekton
+  - name: path
+    type: string
+    description: "provide path of the deployment file"
+    default: "k8s/deployment.yml"
   - name: message
     type: string
-    description: "The message to send to the Matrix room"
+    description: The message to send to the Matrix room
     default: "Cities Demo: new image build and pushed to internal and external registry. Build ID:"
   - name: notification-secret
     type: string
@@ -60,28 +77,28 @@ spec:
     runAfter:
     - get-build-id
   - name: build-image-internal
+    retries: 3
     taskRef:
       name: buildah
       kind: ClusterTask
     params:
     - name: IMAGE
-      value: $(params.IMAGE):$(tasks.get-build-id.results.build-id)
+      value: $(params.image):$(tasks.get-build-id.results.build-id)
     - name: DOCKERFILE
       value: "./Containerfile"
-    - name: SKIP_PUSH
-      value: "false"
     workspaces:
     - name: source
       workspace: shared-workspace
     runAfter:
     - fetch-repository
   - name: build-image-external
+    retries: 3
     taskRef:
       name: buildah
       kind: ClusterTask
     params:
     - name: IMAGE
-      value: $(params.TARGET_IMAGE)-$(tasks.get-build-id.results.build-id)
+      value: $(params.target-image)-$(tasks.get-build-id.results.build-id)
     - name: DOCKERFILE
       value: "./Containerfile"
     workspaces:
@@ -91,7 +108,49 @@ spec:
       workspace: registry-credentials
     runAfter:
     - fetch-repository
-  - name: notification-success
+  - name: patch-deployment-file
+    taskRef:
+      name: patch-file
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    params:
+    - name: build-id
+      value: $(tasks.get-build-id.results.build-id)
+    - name: image
+      value: $(params.image):$(tasks.get-build-id.results.build-id)
+    - name: path
+      value: $(params.path)
+    runAfter:
+    - build-image-internal
+  - name: push-repository
+    taskRef:
+      name: git-cli
+      kind: ClusterTask
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    - name: ssh-directory
+      workspace: github-credentials
+    params:
+    - name: GIT_USER_NAME
+      value: $(params.git-user-name) 
+    - name: GIT_USER_EMAIL
+      value: $(params.git-user-mail) 
+    - name: revision
+      value: $(params.git-revision)
+    - name: GIT_SCRIPT
+      value: |
+        git config --global --add safe.directory /workspace/source
+        git checkout $(params.git-revision)
+        git add $(params.path)
+        git commit -m "ci commit - build id: $(tasks.get-build-id.results.build-id)"
+        git status
+        git remote set-url origin $(params.git-ssh-url)
+        git push origin main
+    runAfter:
+    - patch-deployment-file
+  - name: notification
     taskRef:
       name: notification-to-matrix
     params:
@@ -100,5 +159,5 @@ spec:
     - name: notification-secret
       value: $(params.notification-secret)
     runAfter:
-      - build-image-internal
+      - push-repository
       - build-image-external
