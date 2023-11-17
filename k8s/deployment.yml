@@ -6,7 +6,7 @@ metadata:
   annotations:
     app.openshift.io/vcs-ref: main
     app.openshift.io/vcs-uri: 'https://github.com/smichard/cities_demo'
-    ci.buildid: '1.0.0-20231115-224052'
+    ci.buildid: '1.0.0-20231117-211458'
   generation: 72
 spec:
   replicas: 1
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: cities-demo-dev
-          image: quay.io/michard/cities:skaffold
+          image: image-registry.openshift-image-registry.svc:5000/build-environment/cities-demo:1.0.0-20231117-211458
           ports:
             - containerPort: 8080
               protocol: TCP
