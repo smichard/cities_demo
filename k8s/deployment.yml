@@ -9,7 +9,7 @@ metadata:
     ci.buildid: '1.0.0-20231117-221657'
   generation: 72
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: cities-demo-dev
