@@ -13,11 +13,11 @@ spec:
     default: "1.0.0"
   - name: git-url
     type: string
-    description: "url of the git repo for the code of deployment"
+    description: "Url of the git repo for the code of deployment"
     default: https://github.com/smichard/cities_demo
   - name: git-revision
     type: string
-    description: "revision to be used from repo of the code for deployment"
+    description: "Revision to be used from repo of the code for deployment"
     default: main
   - name: git-user-name
     type: string
@@ -29,23 +29,23 @@ spec:
     default: "stephan.michard@gmail.com"
   - name: git-ssh-url
     type: string
-    description: "ssh url of the git repo for the code of deployment"
+    description: "Ssh url of the git repo for the code of deployment"
     default: git@github.com:smichard/cities_demo.git
   - name: image
     type: string
-    description: "image to be build from the code and push to internal registry"
+    description: "Image to be build from the code and push to internal registry"
     default: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/cities-demo
   - name: target-image
     type: string
-    description: "image to be build from the code and push to external registry"
+    description: "Image to be build from the code and push to external registry"
     default: quay.io/michard/cities:tekton
   - name: path
     type: string
-    description: "provide path of the deployment file"
+    description: "Provide path to the deployment yaml file"
     default: "k8s/deployment.yml"
   - name: message
     type: string
-    description: The message to send to the Matrix room
+    description: "The message to send to the Matrix room"
     default: "Cities Demo: new image build and pushed to internal and external registry. Build ID:"
   - name: notification-secret
     type: string
