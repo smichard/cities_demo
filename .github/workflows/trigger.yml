@@ -10,9 +10,9 @@ jobs:
         run: |
           echo "$GITHUB_CONTEXT"
 
-      - name: Trigger Webhook - 1
-        run: |
-          curl -X POST -H "Content-Type: application/json" -d "${{ toJson(github) }}" ${{ secrets.TEKTON_WEBHOOK }}
+     # - name: Trigger Webhook - 1
+     #   run: |
+     #     curl -X POST -H "Content-Type: application/json" -d "${{ toJson(github) }}" ${{ secrets.TEKTON_WEBHOOK }}
 
       - name: send message
         uses: s3krit/matrix-message-action@v0.0.3
@@ -27,3 +27,4 @@ jobs:
             commit sha: **${{ github.sha }}** <br />
             commit history: **[link](https://github.com/${{ github.repository }}/commits/main)** <br />
             project website: **[stephan.michard.io](https://stephan.michard.io)**
+
