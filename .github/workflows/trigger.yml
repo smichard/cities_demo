@@ -2,7 +2,7 @@ name: notifier
 on:
   push:
     paths:
-      - 'websites/**'
+      - 'website/**'
 jobs:
   ping_matrix:
     runs-on: ubuntu-latest
