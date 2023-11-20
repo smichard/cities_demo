@@ -1,5 +1,8 @@
 name: notifier
-on: push
+on:
+  push:
+    paths:
+      - 'websites/**'
 jobs:
   ping_matrix:
     runs-on: ubuntu-latest
