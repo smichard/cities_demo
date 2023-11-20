@@ -1,21 +1,16 @@
-name: notifier
+name: trigger-tekton
 on:
   push:
     paths:
+      - 'Containerfile'
       - 'website/**'
 jobs:
-  ping_matrix:
+  trigger_webhook:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+      - name: Trigger Tekton Webhook      
         run: |
-          echo "$GITHUB_CONTEXT"
-
-      - name: Trigger Webhook      
-        run: |
-          echo '{
+          curl -X POST -H "Content-Type: application/json" -d "$(echo '{
             "ref": "${{ github.ref }}",
             "repository": {
               "git_url": "https://github.com/${{ github.repository }}.git",
@@ -31,20 +26,18 @@ jobs:
               "timestamp": "${{ github.event.head_commit.timestamp }}",
               "url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
             }
-          }' > payload.json
-          curl -X POST -H "Content-Type: application/json" -d @payload.json ${{ secrets.TEKTON_WEBHOOK }}
+          }')" ${{ secrets.TEKTON_WEBHOOK }}
 
-      - name: send message
+      - name: notification
         uses: s3krit/matrix-message-action@v0.0.3
         with:
           room_id: ${{ secrets.MATRIX_ROOM_ID }}
           access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
           server: ${{ secrets.MATRIX_SERVER }}
           message: |
-            new code commit pushed to repository: **${{ github.repository }}** <br />
+            "${{ github.repository }}": changes to source directory detected<br />
+            **Tekton pipeline triggered**<br />
             commit message: **${{ github.event.head_commit.message }}** <br />
             contributor: **${{ github.actor }}** <br />
             commit sha: **${{ github.sha }}** <br />
             commit history: **[link](https://github.com/${{ github.repository }}/commits/main)** <br />
-            project website: **[stephan.michard.io](https://stephan.michard.io)**
-
