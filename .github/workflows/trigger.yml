@@ -10,9 +10,11 @@ jobs:
         run: |
           echo "$GITHUB_CONTEXT"
 
-     # - name: Trigger Webhook - 1
-     #   run: |
-     #     curl -X POST -H "Content-Type: application/json" -d "${{ toJson(github) }}" ${{ secrets.TEKTON_WEBHOOK }}
+      - name: Trigger Webhook
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}      
+        run: |
+          curl -X POST -H "Content-Type: application/json" -d "${{ toJson(github) }}" ${{ secrets.TEKTON_WEBHOOK }}
 
       - name: send message
         uses: s3krit/matrix-message-action@v0.0.3
