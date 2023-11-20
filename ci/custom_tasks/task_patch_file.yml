@@ -25,7 +25,7 @@ spec:
   workspaces:
     - name: source
   steps:
-  - name: debug
+  - name: patch-file
     image: quay.io/michard/developer_image:tekton-curl
     script: |
       #!/bin/sh
