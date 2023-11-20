@@ -2,26 +2,28 @@ name: notifier
 on: push
 jobs:
   ping_matrix:
-   runs-on: ubuntu-latest
-   steps:
+    runs-on: ubuntu-latest
+    steps:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
+
       - name: Trigger Webhook - 1
         run: |
-          curl -X POST -H "Content-Type: application/json" -d '${{ toJson(github) }}' ${{ secrets.TEKTON_WEBHOOK }}
-     - name: send message
-       uses: s3krit/matrix-message-action@v0.0.3
-       with:
-         room_id: ${{ secrets.MATRIX_ROOM_ID }}
-         access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
-         server: ${{ secrets.MATRIX_SERVER }}
-         message: |
-            new code commit pushed to repository: **${{ github.event.repository.name }}** <br />
+          curl -X POST -H "Content-Type: application/json" -d "${{ toJson(github) }}" ${{ secrets.TEKTON_WEBHOOK }}
+
+      - name: send message
+        uses: s3krit/matrix-message-action@v0.0.3
+        with:
+          room_id: ${{ secrets.MATRIX_ROOM_ID }}
+          access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
+          server: ${{ secrets.MATRIX_SERVER }}
+          message: |
+            new code commit pushed to repository: **${{ github.repository }}** <br />
             commit message: **${{ github.event.head_commit.message }}** <br />
-            contributor: **${{ github.event.commits[0].author.name }}** <br />
+            contributor: **${{ github.actor }}** <br />
             commit sha: **${{ github.sha }}** <br />
-            commit history: **[link](https://github.com/smichard/hugo_website/commits/main)** <br />
+            commit history: **[link](https://github.com/${{ github.repository }}/commits/main)** <br />
             project website: **[stephan.michard.io](https://stephan.michard.io)**
