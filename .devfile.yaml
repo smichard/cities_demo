@@ -40,6 +40,8 @@ components:
           value: https://console-openshift-console.apps.ocp.michard.cc
         - name: CLUSTER_CONSOLE_TITLE
           value: OpenShift console
+        - name: OPENVSX_REGISTRY_URL
+          value: 'https://open-vsx.org/'
       endpoints:
         - exposure: none
           name: kubedock

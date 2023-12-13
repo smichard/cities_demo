@@ -1,0 +1,39 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: cities-demo-run-
+spec:
+  serviceAccountName: pipeline
+  pipelineRef:
+    name: cities-demo
+  workspaces:
+  - name: shared-workspace
+    persistentVolumeClaim:
+      claimName: tekton-cities
+  - name: registry-credentials
+    secret:
+      secretName: quay-creds
+  - name: github-credentials
+    secret:
+      secretName: github-creds
+  params:
+  - name: service-version
+    value: "1.0.0"
+  - name: git-url
+    value: "https://github.com/smichard/cities_demo"
+  - name: git-revision
+    value: "main"
+  - name: git-user-name
+    value: "Stephan Michard"
+  - name: git-user-mail
+    value: "stephan.michard@gmail.com"
+  - name: git-ssh-url
+    value: git@github.com:smichard/cities_demo.git
+  - name: image
+    value: "image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/cities-demo"
+  - name: target-image
+    value: "quay.io/michard/cities:tekton"
+  - name: message
+    value: "Cities Demo: new image build and pushed to internal and external registry. Build ID:"
+  - name: notification-secret
+    value: "matrix-secret"
