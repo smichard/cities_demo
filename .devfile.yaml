@@ -24,11 +24,9 @@ projects:
       remotes:
         origin: https://github.com/smichard/cities_demo.git
 components:
-  - name: developer-image
+  - name: devspaces-image
     container:
-      #image: registry.redhat.io/devspaces/udi-rhel8@sha256:de81824e6ccf82a286a28566432d4f43928a989c570578c4b4df9484ef136cca
-      #image: quay.io/michard/developer_image:rhel
-      image: quay.io/michard/developer_image:devspaces-1.0.0-20231218-201501
+      image: quay.io/michard/developer_image:devspaces-1.0.0-20231218-203036
       sourceMapping: /projects
       env:
         - name: CHE_DASHBOARD_URL
@@ -52,25 +50,25 @@ commands:
   - id: start-kubedock
     exec:
       label: '1. Start kubedock'
-      component: developer-image
+      component: devspaces-image
       commandLine: kubedock server --port-forward
   - id: pull
     exec:
       label: '2. Pull Base Image'
-      component: developer-image
+      component: devspaces-image
       commandLine: podman pull registry.access.redhat.com/ubi8/nginx-122
   - id: build
     exec:
       label: '3. Build Current State'
-      component: developer-image
+      component: devspaces-image
       commandLine: podman build --arch=amd64 -t quay.io/michard/cities -f Containerfile
   - id: cities-podman-run
     exec:
       label: '4. Run Skaffold'
-      component: developer-image
+      component: devspaces-image
       commandLine: oc project dev && podman build --arch=amd64 -t quay.io/michard/cities -f Containerfile_skaffold && skaffold dev --check-cluster-node-platforms=false
   - id: podman-run
     exec:
       label: '5. Podman Remove Cities Container'
-      component: developer-image
+      component: devspaces-image
       commandLine: echo hello world
