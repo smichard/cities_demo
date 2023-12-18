@@ -27,7 +27,8 @@ components:
   - name: developer-image
     container:
       #image: registry.redhat.io/devspaces/udi-rhel8@sha256:de81824e6ccf82a286a28566432d4f43928a989c570578c4b4df9484ef136cca
-      image: quay.io/michard/developer_image:rhel
+      #image: quay.io/michard/developer_image:rhel
+      image: quay.io/michard/developer_image:tekton-1.0.0-20231218-170608
       sourceMapping: /projects
       env:
         - name: CHE_DASHBOARD_URL
