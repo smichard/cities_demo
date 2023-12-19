@@ -126,7 +126,6 @@ spec:
   - name: push-repository
     taskRef:
       name: git-cli
-      kind: ClusterTask
     workspaces:
     - name: source
       workspace: shared-workspace
