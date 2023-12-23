@@ -1,0 +1,20 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: cities-demo-dev
+  namespace: dev
+  labels:
+    app: cities-demo-dev
+  annotations:
+    app.openshift.io/vcs-ref: main
+    app.openshift.io/vcs-uri: 'https://github.com/smichard/cities_demo'
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: cities-demo-dev
+    deployment: cities-demo-dev
+  type: ClusterIP
