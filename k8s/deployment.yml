@@ -1,8 +1,8 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: cities-demo-dev
-  namespace: dev
+  name: cities-demo-gitops
+  namespace: gitops
   annotations:
     app.openshift.io/vcs-ref: main
     app.openshift.io/vcs-uri: 'https://github.com/smichard/cities_demo'
@@ -12,16 +12,16 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cities-demo-dev
+      app: cities-demo-gitops
   template:
     metadata:
       labels:
-        app: cities-demo-dev
-        deployment: cities-demo-dev
+        app: cities-demo-gitops
+        deployment: cities-demo-gitops
     spec:
       containers:
-        - name: cities-demo-dev
-          image: image-registry.openshift-image-registry.svc:5000/build-environment/cities-demo:1.0.0-20231219-080400
+        - name: cities-demo-gitops
+          image: image-registry.openshift-image-registry.svc:5000/build-environment/cities-demo:1.0.0-20231218-222546
           ports:
             - containerPort: 8080
               protocol: TCP
