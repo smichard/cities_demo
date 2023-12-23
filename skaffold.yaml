@@ -18,6 +18,6 @@ build:
           dest: /usr/share/nginx/html/
 manifests:
   rawYaml:
-    - k8s/deployment.yml
-    - k8s/route.yml
-    - k8s/service.yml
+    - k8s/skaffold/deployment.yml
+    - k8s/skaffold/route.yml
+    - k8s/skaffold/service.yml
