@@ -77,7 +77,7 @@ commands:
     exec:
       label: '6. Post Start Commands'
       component: devspaces-container
-      commandLine: zsh && git config --global pull.rebase true && git config --list --global
+      commandLine: git config --global pull.rebase true
 events:
   postStart:
     - post-start-cmd
