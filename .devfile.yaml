@@ -24,7 +24,7 @@ projects:
       remotes:
         origin: https://github.com/smichard/cities_demo.git
 components:
-  - name: devspaces-image
+  - name: devspaces-container
     container:
       image: quay.io/michard/developer_image:devspaces-1.0.0-20231218-203036
       #image: image-registry.openshift-image-registry.svc:5000/build-environment/developer_image:1.0.0-20231224-153056
@@ -51,25 +51,33 @@ commands:
   - id: start-kubedock
     exec:
       label: '1. Start kubedock'
-      component: devspaces-image
+      component: devspaces-container
       commandLine: kubedock server --port-forward
   - id: pull
     exec:
       label: '2. Pull Base Image'
-      component: devspaces-image
+      component: devspaces-container
       commandLine: podman pull registry.access.redhat.com/ubi8/nginx-122
   - id: build
     exec:
       label: '3. Build Current State'
-      component: devspaces-image
+      component: devspaces-container
       commandLine: podman build --arch=amd64 -t quay.io/michard/cities -f Containerfile
   - id: cities-podman-run
     exec:
       label: '4. Run Skaffold'
-      component: devspaces-image
+      component: devspaces-container
       commandLine: oc project dev && podman build --arch=amd64 -t quay.io/michard/cities -f Containerfile_skaffold && skaffold dev --check-cluster-node-platforms=false
   - id: podman-run
     exec:
       label: '5. Podman Remove Cities Container'
-      component: devspaces-image
+      component: devspaces-container
       commandLine: echo hello world
+  - id: post-start-cmd
+    exec:
+      label: '6. Post Start Commands'
+      component: devspaces-container
+      commandLine: zsh && git config --global pull.rebase true && git config --list --global
+events:
+  postStart:
+    - post-start-cmd
