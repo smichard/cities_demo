@@ -40,7 +40,7 @@ spec:
       # Update line 9 with new build ID
       sed -i "9s|ci.buildid:.*|ci.buildid: '$NEW_BUILD_ID'|" $FILE
 
-      # Update line 24 with new image
+      # Update line 23 with new image
       sed -i "23s|image:.*|image: $NEW_IMAGE|" $FILE
 
       echo -e "File $FILE has been updated. \n Build ID: $NEW_BUILD_ID \n Image: $NEW_IMAGE \n"
