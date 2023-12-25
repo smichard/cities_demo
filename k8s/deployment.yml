@@ -9,7 +9,7 @@ metadata:
     ci.buildid: '1.0.0-20231225-204832'
   generation: 72
 spec:
-  replicas: 16
+  replicas: 12
   selector:
     matchLabels:
       app: cities-demo-gitops
@@ -29,7 +29,7 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 25%
-      maxSurge: 25%
+      maxUnavailable: 1
+      maxSurge: 1
   revisionHistoryLimit: 10
   progressDeadlineSeconds: 600
