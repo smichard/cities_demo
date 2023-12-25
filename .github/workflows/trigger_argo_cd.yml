@@ -20,3 +20,4 @@ jobs:
             contributor: **${{ github.actor }}** <br />
             commit sha: **${{ github.sha }}** <br />
             commit history: **[link](https://github.com/${{ github.repository }}/commits/main)** <br />
+            ArgoCD: **[link](https://openshift-gitops-server-openshift-gitops.apps.ocp.michard.cc/applications/openshift-gitops/cities-demo-gitops-app?view=tree&resource=)** <br />
