@@ -6,7 +6,7 @@ build:
   tagPolicy:
     sha256: {}
   artifacts:
-    - image: quay.io/michard/cities-skaffold
+    - image: quay.io/michard/cities_skaffold
       custom:
         buildCommand: ./custom_build.sh
         dependencies:
