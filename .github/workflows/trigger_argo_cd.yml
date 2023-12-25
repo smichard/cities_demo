@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Trigger ArgoCD Webhook      
         run: |
-          curl -X POST -H "Content-Type: application/json" -d '{
+          curl -k -X POST -H "Content-Type: application/json" -d '{
             "ref": "${{ github.ref }}",
             "repository": {
               "git_url": "https://github.com/${{ github.repository }}.git",
