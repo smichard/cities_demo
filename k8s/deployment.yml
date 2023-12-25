@@ -6,7 +6,7 @@ metadata:
   annotations:
     app.openshift.io/vcs-ref: main
     app.openshift.io/vcs-uri: 'https://github.com/smichard/cities_demo'
-    ci.buildid: '1.0.0-20231225-205608'
+    ci.buildid: '1.0.0-20231225-211942'
 spec:
   replicas: 1
   selector:
