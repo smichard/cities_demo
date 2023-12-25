@@ -41,7 +41,7 @@ spec:
       sed -i "9s|ci.buildid:.*|ci.buildid: '$NEW_BUILD_ID'|" $FILE
 
       # Update line 24 with new image
-      sed -i "24s|image:.*|image: $NEW_IMAGE|" $FILE
+      sed -i "23s|image:.*|image: $NEW_IMAGE|" $FILE
 
       echo -e "File $FILE has been updated. \n Build ID: $NEW_BUILD_ID \n Image: $NEW_IMAGE \n"
       echo -e "File content: \n"
