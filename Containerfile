@@ -1,10 +1,5 @@
-FROM registry.access.redhat.com/ubi8/nginx-122
+# Use the nginx image based on Alpine
+FROM quay.io/michard/nginx_base:tekton-1.0.0-20231226-205543
 
-# Add application sources
-ADD nginx_config/nginx.conf "${NGINX_CONF_PATH}"
-ADD nginx_config/nginx_default_cfg/*.conf "${NGINX_DEFAULT_CONF_PATH}"
-ADD nginx_config/nginx_cfg/*.conf "${NGINX_CONFIGURATION_PATH}"
-ADD website/ /usr/share/nginx/html/website/
-
-# Run script uses standard ways to run the application
-CMD ["nginx", "-g", "daemon off;"]
+# Copy your website files to the container
+COPY website/ /usr/share/nginx/html
