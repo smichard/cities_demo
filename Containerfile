@@ -1,5 +1,5 @@
 # Use the nginx image based on Alpine
-FROM nginx:alpine
+FROM docker.io/library/nginx:alpine
 
 # Install tar using apk
 RUN apk add --no-cache tar
