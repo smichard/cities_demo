@@ -54,7 +54,7 @@ spec:
         The base image for the task.
       type: string
       # TODO: change to tekton-git
-      default: quay.io/michard/developer_image:tekton-test
+      default: quay.io/michard/developer_image:tekton-push
 
     - name: GIT_USER_NAME
       type: string
