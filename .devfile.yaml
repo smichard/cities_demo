@@ -26,8 +26,7 @@ projects:
 components:
   - name: devspaces-container
     container:
-      image: quay.io/michard/developer_image:devspaces-1.0.0-20231225-210343
-      #image: image-registry.openshift-image-registry.svc:5000/build-environment/developer_image:1.0.0-20231224-153056
+      image: quay.io/michard/developer_image:devspaces-1.0.0-20240108-124739
       sourceMapping: /projects
       env:
         - name: CHE_DASHBOARD_URL
