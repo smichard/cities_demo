@@ -1,16 +1,13 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: cities-demo
+  name: cities-demo-new
 spec:
   workspaces:
   - name: shared-workspace
   - name: registry-credentials
   - name: github-credentials
   params:
-  - name: service-version
-    type: string
-    default: "1.0.0"
   - name: git-url
     type: string
     description: "Url of the git repo for the code of deployment"
@@ -38,7 +35,7 @@ spec:
   - name: target-image
     type: string
     description: "Image to be build from the code and push to external registry"
-    default: quay.io/michard/cities:tekton
+    default: quay.io/michard/cities
   - name: path
     type: string
     description: "Provide path to the deployment yaml file"
@@ -52,12 +49,6 @@ spec:
     description: "Secret containing the Matrix credentials"
     default: "matrix-secret"
   tasks:
-  - name: get-build-id
-    taskRef:
-      name: generate-build-id
-    params:
-      - name: base-version
-        value: $(params.service-version)
   - name: fetch-repository
     taskRef:
       name: git-clone
@@ -74,8 +65,14 @@ spec:
       value: "true"
     - name: revision
       value: $(params.git-revision)
+  - name: get-git-tag
+    taskRef:
+      name: get-git-tag
+    workspaces:
+    - name: source
+      workspace: shared-workspace
     runAfter:
-    - get-build-id
+    - fetch-repository
   - name: build-image-internal
     retries: 3
     taskRef:
@@ -83,14 +80,14 @@ spec:
       kind: ClusterTask
     params:
     - name: IMAGE
-      value: $(params.image):$(tasks.get-build-id.results.build-id)
+      value: $(params.image):$(tasks.get-git-tag.results.build-tag)
     - name: DOCKERFILE
       value: "./Containerfile"
     workspaces:
     - name: source
       workspace: shared-workspace
     runAfter:
-    - fetch-repository
+    - get-git-tag
   - name: build-image-external
     retries: 3
     taskRef:
@@ -98,7 +95,7 @@ spec:
       kind: ClusterTask
     params:
     - name: IMAGE
-      value: $(params.target-image)-$(tasks.get-build-id.results.build-id)
+      value: $(params.target-image):$(tasks.get-git-tag.results.build-tag)
     - name: DOCKERFILE
       value: "./Containerfile"
     workspaces:
@@ -116,9 +113,9 @@ spec:
       workspace: shared-workspace
     params:
     - name: build-id
-      value: $(tasks.get-build-id.results.build-id)
+      value: $(tasks.get-git-tag.results.build-tag)
     - name: image
-      value: $(params.image):$(tasks.get-build-id.results.build-id)
+      value: $(params.image):$(tasks.get-git-tag.results.build-tag)
     - name: path
       value: $(params.path)
     runAfter:
@@ -143,7 +140,7 @@ spec:
         git config --global --add safe.directory /workspace/source
         git checkout $(params.git-revision)
         git add $(params.path)
-        git commit -m "ci commit - build id: $(tasks.get-build-id.results.build-id)"
+        git commit -m "ci commit - build tag: $(tasks.get-git-tag.results.build-tag)"
         git status
         git remote set-url origin $(params.git-ssh-url)
         git push origin main
@@ -154,7 +151,7 @@ spec:
       name: notification-to-matrix
     params:
     - name: message
-      value: $(params.message) $(tasks.get-build-id.results.build-id)
+      value: $(params.target-image) $(params.message) $(tasks.get-git-tag.results.build-tag)
     - name: notification-secret
       value: $(params.notification-secret)
     runAfter:
