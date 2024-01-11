@@ -43,7 +43,7 @@ spec:
   - name: message
     type: string
     description: "The message to send to the Matrix room"
-    default: "Cities Demo: new image build and pushed to internal and external registry. Build ID:"
+    default: "Cities Demo: new image build and pushed to internal and external registry. Build Tag:"
   - name: notification-secret
     type: string
     description: "Secret containing the Matrix credentials"
