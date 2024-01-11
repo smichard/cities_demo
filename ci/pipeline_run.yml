@@ -17,8 +17,6 @@ spec:
     secret:
       secretName: github-creds
   params:
-  - name: service-version
-    value: "1.0.0"
   - name: git-url
     value: "https://github.com/smichard/cities_demo"
   - name: git-revision
@@ -34,6 +32,6 @@ spec:
   - name: target-image
     value: "quay.io/michard/cities:tekton"
   - name: message
-    value: "Cities Demo: new image build and pushed to internal and external registry. Build ID:"
+    value: "Cities Demo: new image build and pushed to internal and external registry. Build Tag:"
   - name: notification-secret
     value: "matrix-secret"
