@@ -8,8 +8,15 @@ spec:
     name: cities-demo
   workspaces:
   - name: shared-workspace
-    persistentVolumeClaim:
-      claimName: tekton-cities
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 50Mi
+        storageClassName: managed-nfs-storage
+        volumeMode: Filesystem
   - name: registry-credentials
     secret:
       secretName: quay-creds
