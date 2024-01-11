@@ -1,11 +1,30 @@
-name: trigger-tekton
+name: on-commit
 on:
   push:
     paths:
       - 'Containerfile'
       - 'website/**'
 jobs:
-  trigger_webhook:
+  bump_tag:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'
+
+    - name: Bump version and push tag
+      # GitHub Action: https://github.com/marketplace/actions/github-tag-bump
+      uses: anothrNick/github-tag-action@1.64.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DEFAULT_BUMP: patch
+        DEFAULT_BRANCH: main
+        WITH_V: false
+
+  trigger_tekton_webhook:
+    needs: bump_tag
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Tekton Webhook      
@@ -28,6 +47,10 @@ jobs:
             }
           }' ${{ secrets.TEKTON_WEBHOOK }}
 
+  notification:
+    needs: trigger_tekton_webhook
+    runs-on: ubuntu-latest
+    steps:
       - name: notification
         uses: s3krit/matrix-message-action@v0.0.3
         with:
