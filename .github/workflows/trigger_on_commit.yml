@@ -4,6 +4,9 @@ on:
     paths:
       - 'Containerfile'
       - 'website/**'
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
 jobs:
   bump_tag:
     runs-on: ubuntu-22.04
