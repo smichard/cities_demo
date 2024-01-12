@@ -138,11 +138,12 @@ spec:
     - name: GIT_SCRIPT
       value: |
         git config --global --add safe.directory /workspace/source
-        git checkout $(params.git-revision)
+        git remote set-url origin $(params.git-ssh-url)
+        git fetch origin main
+        git checkout -B main origin/main
         git add $(params.path)
         git commit -m "ci commit - build tag: $(tasks.get-git-tag.results.build-tag)"
         git status
-        git remote set-url origin $(params.git-ssh-url)
         git push origin main
     runAfter:
     - patch-deployment-file
