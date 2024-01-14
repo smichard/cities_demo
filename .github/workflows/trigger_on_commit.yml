@@ -68,3 +68,10 @@ jobs:
             commit sha: **${{ github.sha }}** <br />
             commit history: **[link](https://github.com/${{ github.repository }}/commits/main)** <br />
             Pipeline: **[link](https://console-openshift-console.apps.ocp.michard.cc/pipelines/ns/build-environment)** <br />
+
+  delay_job:
+    needs: notification
+    runs-on: ubuntu-latest
+    steps:
+    - name: Delay workflow
+      run: sleep 60
