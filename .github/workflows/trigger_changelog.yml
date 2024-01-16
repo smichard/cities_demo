@@ -1,25 +1,19 @@
-name: generate-changelog
-
+name: Generate changelog
 on:
   push:
     branches: [ main, master]
 
 jobs:
-  changelog:
-    name: Update Changelog
+  generate-changelog:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Update Changelog
-        uses: AlexxNB/chalogen@master
-        with:
-          title: Changelog
-          list: feat,fix,gitops,perf,docs,other 
-      - name: Commit Changelog to repository
-        uses: stefanzweifel/git-auto-commit-action@v4.13.0
-        with:
-          commit_message: 'docs(Changelog): Update Changelog'
-          file_pattern: CHANGELOG.md
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: BobAnkh/auto-generate-changelog@v1.2.5
+      with:
+        REPO_NAME: '<YourUserName>/<YourRepoName>'
+        ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        PATH: 'CHANGELOG.md'
+        COMMIT_MESSAGE: 'docs(CHANGELOG): update release notes'
+        TYPE: 'feat:Feature,fix:Bug Fixes,docs:Documentation,refactor:Refactor,perf:Performance Improvements'
