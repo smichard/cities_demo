@@ -70,7 +70,7 @@ jobs:
             Pipeline: **[link](https://console-openshift-console.apps.ocp.michard.cc/pipelines/ns/build-environment)** <br />
 
   changelog:
-    name: Update Changelog
+    needs: notification
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -93,4 +93,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Delay workflow
-      run: sleep 50
+      run: sleep 60
