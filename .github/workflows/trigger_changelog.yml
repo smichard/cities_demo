@@ -1,7 +1,8 @@
 name: Generate changelog
 on:
-  push:
-    branches: [ main, master]
+  create:
+    tags:
+      - '*'
 
 jobs:
   generate-changelog:
