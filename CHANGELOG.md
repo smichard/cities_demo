@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.13 - 2024-01-16
+## 0.4.14 - 2024-01-16
 
 ### Features
 
@@ -45,6 +45,7 @@
 
 ### Continuous Integrations
 
+-  new image deployed - build tag: 0.4.13 [`bb2dce62`](https://github.com/smichard/cities_demo/commit/bb2dce6215d5164c18d5175e5ec634be179a9e89)
 -  new image deployed - build tag: 0.4.11 [`20320fec`](https://github.com/smichard/cities_demo/commit/20320fec80aac59a4c9b2fb6e7e7c3468feb6a23)
 -  new image deployed - build tag: 0.4.10 [`3e9e8233`](https://github.com/smichard/cities_demo/commit/3e9e82330454a4e9c3f0235a32f9df551db4f19a)
 -  new image deployed - build tag: 0.4.9 [`fb9935cd`](https://github.com/smichard/cities_demo/commit/fb9935cd121852fe4f21c51726643d5145222f20)
