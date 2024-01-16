@@ -69,9 +69,28 @@ jobs:
             commit history: **[link](https://github.com/${{ github.repository }}/commits/main)** <br />
             Pipeline: **[link](https://console-openshift-console.apps.ocp.michard.cc/pipelines/ns/build-environment)** <br />
 
+  changelog:
+    name: Update Changelog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Update Changelog
+        uses: AlexxNB/chalogen@master
+        with:
+          title: Changelog
+          list: feat,fix,ci,perf,docs,other 
+      - name: Commit Changelog to repository
+        uses: stefanzweifel/git-auto-commit-action@v4.13.0
+        with:
+          commit_message: 'docs(Changelog): Update Changelog'
+          file_pattern: CHANGELOG.md
+  
   delay_job:
     needs: notification
     runs-on: ubuntu-latest
     steps:
     - name: Delay workflow
-      run: sleep 60
+      run: sleep 50
