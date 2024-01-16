@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.14 - 2024-01-16
+## 0.4.15 - 2024-01-16
 
 ### Features
 
@@ -45,6 +45,7 @@
 
 ### Continuous Integrations
 
+-  new image deployed - build tag: 0.4.14 [`4756d792`](https://github.com/smichard/cities_demo/commit/4756d792d62fc8bdf40b2e714e5d1df892f12fa0)
 -  new image deployed - build tag: 0.4.13 [`bb2dce62`](https://github.com/smichard/cities_demo/commit/bb2dce6215d5164c18d5175e5ec634be179a9e89)
 -  new image deployed - build tag: 0.4.11 [`20320fec`](https://github.com/smichard/cities_demo/commit/20320fec80aac59a4c9b2fb6e7e7c3468feb6a23)
 -  new image deployed - build tag: 0.4.10 [`3e9e8233`](https://github.com/smichard/cities_demo/commit/3e9e82330454a4e9c3f0235a32f9df551db4f19a)
@@ -58,6 +59,12 @@
 -  new image deployed - build tag: 0.4.2 [`b73e887c`](https://github.com/smichard/cities_demo/commit/b73e887ce0fa4a0cac61d12fe48d7bc39709e6e6)
 -  new image deployed - build tag: 0.4.1 [`0ed91b20`](https://github.com/smichard/cities_demo/commit/0ed91b20f8291998fdd5f26b4e68226e34da0620)
 -  new image deployed - build tag: 0.4.0 [`5671227c`](https://github.com/smichard/cities_demo/commit/5671227c84abe4458ba102b0dd323d1439485a20)
+
+### Performance Improvements
+
+- ⚡️ github workflow adjusted [`5423496d`](https://github.com/smichard/cities_demo/commit/5423496dc1d0b495bfb8262d2cafeac3e2f7fb53)
+
+    *due to recent changes, delay reduced*
 
 ### Documentation
 
