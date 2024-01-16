@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.10 - 2024-01-16
+## 0.4.11 - 2024-01-16
 
 ### Features
 
@@ -13,6 +13,12 @@
 
 ### Bug Fixes
 
+- 💚 github workflow for changelog deleted [`9668a13a`](https://github.com/smichard/cities_demo/commit/9668a13a7c9fd3f63c3ca7cecda8d30c72436a46)
+
+    *removed dedicated github workflow for changelog since it is now part of the commit workflow*
+- 🎨 github workflow adjusted [`faa11238`](https://github.com/smichard/cities_demo/commit/faa11238f3667bba47e2f24209a5c46cf8c1e833)
+
+    *changelog moved to beginning of workflow in order to prevent conflicts with ci commits from tekton*
 - 🐛 gituhb workflow adjusted [`8b4c123b`](https://github.com/smichard/cities_demo/commit/8b4c123b2eae0415695455856b6a218e27ae97a3)
 
     *changelog job inserted into pipeline, after notification*
@@ -39,6 +45,7 @@
 
 ### Continuous Integrations
 
+-  new image deployed - build tag: 0.4.10 [`3e9e8233`](https://github.com/smichard/cities_demo/commit/3e9e82330454a4e9c3f0235a32f9df551db4f19a)
 -  new image deployed - build tag: 0.4.9 [`fb9935cd`](https://github.com/smichard/cities_demo/commit/fb9935cd121852fe4f21c51726643d5145222f20)
 -  new image deployed - build tag: 0.4.8 [`cdb6bf4d`](https://github.com/smichard/cities_demo/commit/cdb6bf4dca61ea71e9efedd8e2beafec77a988e7)
 -  new image deployed - build tag: 0.4.7 [`5552ee92`](https://github.com/smichard/cities_demo/commit/5552ee9282245bdbc76a74ab918c7d4a7aec4a11)
