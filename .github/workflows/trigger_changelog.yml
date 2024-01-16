@@ -1,8 +1,9 @@
-name: Generate changelog
+name: generate-changelog
 
 on:
-  push:
-    branches: [ main, master]
+  create:
+    tags:
+      - '*'
 
 jobs:
   changelog:
@@ -17,7 +18,7 @@ jobs:
         uses: AlexxNB/chalogen@master
         with:
           title: Changelog
-          list: feat,fix,gitops,perf,docs,other 
+          list: feat,fix,ci,perf,docs,other 
       - name: Commit Changelog to repository
         uses: stefanzweifel/git-auto-commit-action@v4.13.0
         with:
