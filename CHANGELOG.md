@@ -2,6 +2,8 @@
 
 ## unreleased
 
+## 0.4.5 - 2024-01-16
+
 ### Features
 
 - 🎨 workflow added [`227ebef6`](https://github.com/smichard/cities_demo/commit/227ebef6cea17f890971ba7523dc30cbde99a8b7)
