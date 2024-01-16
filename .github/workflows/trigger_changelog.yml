@@ -20,7 +20,7 @@ jobs:
           title: Changelog
           list: feat,fix,ci,perf,docs,other 
       - name: Commit Changelog to repository
-        uses: stefanzweifel/git-auto-commit-action@v4.13.0
+        uses: stefanzweifel/git-auto-commit-action@v5.0.0
         with:
           commit_message: 'docs(Changelog): Update Changelog'
           file_pattern: CHANGELOG.md
