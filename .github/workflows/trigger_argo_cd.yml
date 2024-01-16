@@ -1,4 +1,4 @@
-name: trigger-argo-cd
+name: on-gitops-update
 on:
   push:
     paths:
