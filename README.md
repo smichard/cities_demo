@@ -2,8 +2,8 @@
 
 This repository is a demonstration of developing containerized applications using CNCF projects, particularly showcasing the integration and utilization of selected tools in [Red Hat OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift). It serves as a practical example for developers looking to understand containerized application workflows in a cloud-native ecosystem.
 
-![GitHub Tag](https://img.shields.io/github/v/tag/smichard/cities)
-![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/smichard/cities)
+![GitHub Tag](https://img.shields.io/github/v/tag/smichard/cities_demo)
+![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/smichard/cities_demo)
 [![Container Registry on Quay](https://img.shields.io/badge/Quay-Container_Registry-46b9e5 "Container Registry on Quay")](https://quay.io/repository/michard/cities)
 [![Developer Workspace](https://www.eclipse.org/che/contribute.svg)](https://devspaces.apps.ocp.michard.cc#https://github.com/smichard/cities_demo)
 
