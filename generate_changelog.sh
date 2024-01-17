@@ -5,7 +5,7 @@ set -e
 
 # Path to the Git repository (current directory)
 REPO_DIR="."
-CHANGELOG_FILE="$REPO_DIR/CHANGELOG.md"
+CHANGELOG_FILE="$REPO_DIR/CHANGELOG_new.md"
 TEMP_CHANGELOG_FILE="$REPO_DIR/temp_changelog.md"
 GITHUB_REPO_URL="https://github.com/smichard/cities_demo" # Replace with your repository URL
 
@@ -44,7 +44,7 @@ for TAG in $TAGS; do
     echo "" >> $TEMP_CHANGELOG_FILE
 
     # Define categories
-    CATEGORIES="feat fix ci perf docs gitops test demo build chore style refactor"
+    CATEGORIES="feat fix ci perf docs gitops deploy test demo build chore style refactor"
 
     # Collect all commits for this tag range
     ALL_COMMITS=$(git log $TAG..$PREV_TAG --oneline)
