@@ -54,6 +54,9 @@ fi
 # Define categories
 CATEGORIES="feat fix ci perf docs gitops deploy test demo build chore style refactor"
 
+# Regular expression for matching conventional commits
+CONVENTIONAL_COMMIT_REGEX="^.* (feat|fix|ci|perf|docs|gitops|deploy|test|demo|build|chore|style|refactor)(\(.*\))?: "
+
 # Iterate over tags
 for TAG in $TAGS; do
     echo "Processing tag: $TAG"
@@ -62,14 +65,12 @@ for TAG in $TAGS; do
     echo "" >> $CHANGELOG_FILE
 
     # Collect all commits for this tag range
-    echo "Collecting commits for tag $TAG..."
     ALL_COMMITS=$(git log $TAG..$PREV_TAG --oneline)
 
+    # Process each category
     for KEY in $CATEGORIES; do
-        echo "Starting category: $KEY for tag $TAG"
-        CATEGORY_COMMITS=$(echo "$ALL_COMMITS" | grep -E "^.* $KEY(\(.*\))?: " || echo "No commits for this category")
-        echo "Commits for category $KEY: $CATEGORY_COMMITS"
-        if [ "$CATEGORY_COMMITS" != "No commits for this category" ]; then
+        CATEGORY_COMMITS=$(echo "$ALL_COMMITS" | grep -E "^.* $KEY(\(.*\))?: " || true)
+        if [ ! -z "$CATEGORY_COMMITS" ]; then
             case $KEY in
                 "feat") CATEGORY_NAME="Feature" ;;
                 "fix") CATEGORY_NAME="Bug Fixes" ;;
@@ -93,11 +94,21 @@ for TAG in $TAGS; do
                 echo "- $MESSAGE [\`$HASH\`]($GITHUB_REPO_URL/commit/$HASH)" >> $CHANGELOG_FILE
             done
             echo "" >> $CHANGELOG_FILE
-        else
-            echo "No commits found for category $KEY under tag $TAG"
         fi
-        echo "Completed category: $KEY for tag $TAG"
     done
+
+    # Process 'Other' category
+    OTHER_COMMITS=$(echo "$ALL_COMMITS" | grep -v -E "$CONVENTIONAL_COMMIT_REGEX" || true)
+    if [ ! -z "$OTHER_COMMITS" ]; then
+        echo "### Other" >> $CHANGELOG_FILE
+        echo "Listing commits for category: Other under tag $TAG"
+        echo "$OTHER_COMMITS" | while read -r COMMIT; do
+            HASH=$(echo $COMMIT | awk '{print $1}')
+            MESSAGE=$(echo $COMMIT | sed -E 's/^[^ ]* //')
+            echo "- $MESSAGE [\`$HASH\`]($GITHUB_REPO_URL/commit/$HASH)" >> $CHANGELOG_FILE
+        done
+        echo "" >> $CHANGELOG_FILE
+    fi
 
     echo "Completed processing tag: $TAG"
     # Update the previous tag
