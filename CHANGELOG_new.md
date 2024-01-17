@@ -1,6 +1,13 @@
 
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+
 ## Unreleased Changes
 
+- :bug: finalized script to generate changelog [`1e453be`](https://github.com/smichard/cities_demo/commit/1e453be)
 - :bug: added comments and error handling [`3701077`](https://github.com/smichard/cities_demo/commit/3701077)
 - :sparkles: deploy added to categories list [`eae698c`](https://github.com/smichard/cities_demo/commit/eae698c)
 - :construction: changelog script [`d785124`](https://github.com/smichard/cities_demo/commit/d785124)
@@ -14,6 +21,7 @@
 - :construction: changelog script [`d785124`](https://github.com/smichard/cities_demo/commit/d785124)
 
 ### Bug Fixes
+- :bug: finalized script to generate changelog [`1e453be`](https://github.com/smichard/cities_demo/commit/1e453be)
 - :bug: added comments and error handling [`3701077`](https://github.com/smichard/cities_demo/commit/3701077)
 
 ### Continuous Integration

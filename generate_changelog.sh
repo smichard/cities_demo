@@ -37,6 +37,14 @@ PREV_TAG=HEAD
 # Create or clear the changelog file
 echo "" > $CHANGELOG_FILE
 
+# Add the introductory text to the changelog
+echo "# Changelog" >> $CHANGELOG_FILE
+echo "" >> $CHANGELOG_FILE
+echo "All notable changes to this project will be documented in this file." >> $CHANGELOG_FILE
+echo "" >> $CHANGELOG_FILE
+echo "The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)." >> $CHANGELOG_FILE
+echo "" >> $CHANGELOG_FILE
+
 # Collect and list unreleased changes
 echo "## Unreleased Changes" >> $CHANGELOG_FILE
 echo "" >> $CHANGELOG_FILE
