@@ -104,7 +104,7 @@ spec:
     - name: dockerconfig
       workspace: registry-credentials
     runAfter:
-    - fetch-repository
+    - get-git-tag
   - name: patch-deployment-file
     taskRef:
       name: patch-file
