@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.15 - 2024-01-16
+## 0.4.16 - 2024-01-17
 
 ### Features
 
@@ -45,6 +45,7 @@
 
 ### Continuous Integrations
 
+-  new image deployed - build tag: 0.4.15 [`e8278413`](https://github.com/smichard/cities_demo/commit/e8278413d74b06d83974d59a24f515fa65aa8768)
 -  new image deployed - build tag: 0.4.14 [`4756d792`](https://github.com/smichard/cities_demo/commit/4756d792d62fc8bdf40b2e714e5d1df892f12fa0)
 -  new image deployed - build tag: 0.4.13 [`bb2dce62`](https://github.com/smichard/cities_demo/commit/bb2dce6215d5164c18d5175e5ec634be179a9e89)
 -  new image deployed - build tag: 0.4.11 [`20320fec`](https://github.com/smichard/cities_demo/commit/20320fec80aac59a4c9b2fb6e7e7c3468feb6a23)
@@ -83,6 +84,7 @@
 
 ### Other
 
+- 🚀 scale deployment [`1c41b17f`](https://github.com/smichard/cities_demo/commit/1c41b17f4958132b5103e9d1f502158cc0e48574)
 - 🚀 scale deployment [`2c0d084f`](https://github.com/smichard/cities_demo/commit/2c0d084f9fe561b06c0ba1e2ec9b002d3baf9cc4)
 - Merge branch 'main' of https://github.com/smichard/cities_demo [`97687672`](https://github.com/smichard/cities_demo/commit/97687672963c85660129933ea70966cf15acf761)
 - 🚀 scale deployment [`2982572a`](https://github.com/smichard/cities_demo/commit/2982572aba67048e4ec1dce623707be9f4bfeee4)
