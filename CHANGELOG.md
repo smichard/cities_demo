@@ -5,9 +5,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.4.25 (2024-01-18)
+
 ## 0.4.24 (2024-01-18)
 
+### Test
+- :construction: testing pipeline [`7e59f46`](https://github.com/smichard/cities_demo/commit/7e59f46)
+
 ## 0.4.23 (2024-01-18)
+
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.4.23 [`e64e86e`](https://github.com/smichard/cities_demo/commit/e64e86e)
+- :memo: changelog regenerated - build tag: 0.4.23 [`2e3bf84`](https://github.com/smichard/cities_demo/commit/2e3bf84)
+
+### Test
+- :construction: testing pipeline [`ad9d0c9`](https://github.com/smichard/cities_demo/commit/ad9d0c9)
 
 ### Other
 - Merge branch 'main' of https://github.com/smichard/cities_demo [`cab9c3f`](https://github.com/smichard/cities_demo/commit/cab9c3f)
