@@ -13,6 +13,17 @@ GITHUB_REPO_URL="https://github.com/smichard/cities_demo" # Replace with your re
 
 echo "Starting changelog generation script..."
 
+# Create or clear the changelog file
+echo -n > $CHANGELOG_FILE
+
+# Add the introductory text to the changelog
+echo "# Changelog" >> $CHANGELOG_FILE
+echo "" >> $CHANGELOG_FILE
+echo "All notable changes to this project will be documented in this file." >> $CHANGELOG_FILE
+echo "" >> $CHANGELOG_FILE
+echo "The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)." >> $CHANGELOG_FILE
+echo "" >> $CHANGELOG_FILE
+
 # Go to the repository directory
 cd $REPO_DIR
 
@@ -22,20 +33,6 @@ echo "Fetched latest tags."
 
 # Get the latest tag
 LATEST_TAG=$(git describe --tags --abbrev=0)
-
-# Collect and list unreleased changes
-UNRELEASED_COMMITS=$(git log $LATEST_TAG..HEAD --oneline)
-if [ ! -z "$UNRELEASED_COMMITS" ]; then
-    echo "## Unreleased Changes" >> $CHANGELOG_FILE
-    echo "" >> $CHANGELOG_FILE
-    echo "Processing unreleased changes..."
-    echo "$UNRELEASED_COMMITS" | while read -r COMMIT; do
-        HASH=$(echo $COMMIT | awk '{print $1}')
-        MESSAGE=$(echo $COMMIT | sed -E 's/^[^:]+(\([^)]+\))?: //')
-        echo "- $MESSAGE [\`$HASH\`]($GITHUB_REPO_URL/commit/$HASH)" >> $CHANGELOG_FILE
-    done
-    echo "" >> $CHANGELOG_FILE
-fi
 
 # Get tags in reverse order
 TAGS=$(git tag --sort=-v:refname)
@@ -50,17 +47,6 @@ echo "Found tags: $TAGS"
 
 # Placeholder for the previous tag
 PREV_TAG=HEAD
-
-# Create or clear the changelog file
-echo "" > $CHANGELOG_FILE
-
-# Add the introductory text to the changelog
-echo "# Changelog" >> $CHANGELOG_FILE
-echo "" >> $CHANGELOG_FILE
-echo "All notable changes to this project will be documented in this file." >> $CHANGELOG_FILE
-echo "" >> $CHANGELOG_FILE
-echo "The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)." >> $CHANGELOG_FILE
-echo "" >> $CHANGELOG_FILE
 
 # Define categories
 CATEGORIES="feat fix ci perf docs gitops deploy test demo build chore style refactor"
