@@ -7,7 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## 0.4.25 (2024-01-18)
 
-## 0.4.25 (2024-01-18)
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.4.25 [`6ffa075`](https://github.com/smichard/cities_demo/commit/6ffa075)
+- :memo: changelog regenerated - build tag: 0.4.25 [`e89ef38`](https://github.com/smichard/cities_demo/commit/e89ef38)
+
+### Test
+- :construction: testing changelog script [`c7e09a8`](https://github.com/smichard/cities_demo/commit/c7e09a8)
+
+### Other
+- Merge branch 'main' of https://github.com/smichard/cities_demo [`9ad1538`](https://github.com/smichard/cities_demo/commit/9ad1538)
 
 ## 0.4.24 (2024-01-18)
 
@@ -19,13 +27,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - :construction: testing pipeline [`7e59f46`](https://github.com/smichard/cities_demo/commit/7e59f46)
 
 ## 0.4.23 (2024-01-18)
-
-### Continuous Integration
-- :robot: new image deployed - build tag: 0.4.23 [`e64e86e`](https://github.com/smichard/cities_demo/commit/e64e86e)
-- :memo: changelog regenerated - build tag: 0.4.23 [`2e3bf84`](https://github.com/smichard/cities_demo/commit/2e3bf84)
-
-### Test
-- :construction: testing pipeline [`ad9d0c9`](https://github.com/smichard/cities_demo/commit/ad9d0c9)
 
 ### Continuous Integration
 - :robot: new image deployed - build tag: 0.4.23 [`e64e86e`](https://github.com/smichard/cities_demo/commit/e64e86e)
