@@ -1,4 +1,3 @@
-
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -12,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - :memo: changelog regenerated - build tag: 0.4.25 [`e89ef38`](https://github.com/smichard/cities_demo/commit/e89ef38)
 
 ### Test
+- :construction: changelog generated locally 2 [`f99b7e1`](https://github.com/smichard/cities_demo/commit/f99b7e1)
 - :construction: changelog generated locally [`c5cfd3a`](https://github.com/smichard/cities_demo/commit/c5cfd3a)
 - :construction: testing changelog script [`c7e09a8`](https://github.com/smichard/cities_demo/commit/c7e09a8)
 
