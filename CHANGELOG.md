@@ -7,10 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased Changes
 
+## 0.4.17 (2024-01-18)
+
 ## 0.4.16 (2024-01-17)
 
-### Refactor
-- :fire: removed changelog file since generated through old github action workflow [`afaf407`](https://github.com/smichard/cities_demo/commit/afaf407)
+### Test
+- :construction: testing recent changes to ci pipeline [`21d4be5`](https://github.com/smichard/cities_demo/commit/21d4be5)
 
 ## 0.4.15 (2024-01-16)
 
