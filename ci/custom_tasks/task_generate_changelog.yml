@@ -55,7 +55,8 @@ spec:
         echo "Fetched latest tags."
 
         # Get the latest tag
-        LATEST_TAG=$(git describe --tags --abbrev=0)
+        LATEST_TAG=$(git describe --tags --abbrev=0 --always)
+        echo "Latest tag: $LATEST_TAG"
 
         # Collect and list unreleased changes
         UNRELEASED_COMMITS=$(git log $LATEST_TAG..HEAD --oneline)
@@ -73,14 +74,13 @@ spec:
 
         # Get tags in reverse order
         TAGS=$(git tag --sort=-v:refname)
+        echo "Found tags: $TAGS"
 
         # Check if there are any tags
         if [ -z "$TAGS" ]; then
             echo "No tags found in the repository."
             exit 1
         fi
-
-        echo "Found tags: $TAGS"
 
         # Placeholder for the previous tag
         PREV_TAG=HEAD
@@ -111,11 +111,13 @@ spec:
 
             # Collect all commits for this tag range
             ALL_COMMITS=$(git log $TAG..$PREV_TAG --oneline)
+            echo "All commits for tag range $TAG..$PREV_TAG: $ALL_COMMITS"
 
             # Process each category
             for KEY in $CATEGORIES; do
                 CATEGORY_COMMITS=$(echo "$ALL_COMMITS" | grep -E "^.* $KEY(\(.*\))?: " || true)
                 if [ ! -z "$CATEGORY_COMMITS" ]; then
+                    echo "Category commits for $KEY under tag $TAG: $CATEGORY_COMMITS"
                     case $KEY in
                         "feat") CATEGORY_NAME="Feature" ;;
                         "fix") CATEGORY_NAME="Bug Fixes" ;;
@@ -145,6 +147,7 @@ spec:
             # Process 'Other' category
             OTHER_COMMITS=$(echo "$ALL_COMMITS" | grep -v -E "$CONVENTIONAL_COMMIT_REGEX" || true)
             if [ ! -z "$OTHER_COMMITS" ]; then
+                echo "Other commits for tag $TAG: $OTHER_COMMITS"
                 echo "### Other" >> $CHANGELOG_FILE
                 echo "Listing commits for category: Other under tag $TAG"
                 echo "$OTHER_COMMITS" | while read -r COMMIT; do
