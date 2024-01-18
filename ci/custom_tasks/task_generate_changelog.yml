@@ -54,6 +54,23 @@ spec:
         git fetch --tags
         echo "Fetched latest tags."
 
+        # Get the latest tag
+        LATEST_TAG=$(git describe --tags --abbrev=0)
+
+        # Collect and list unreleased changes
+        UNRELEASED_COMMITS=$(git log $LATEST_TAG..HEAD --oneline)
+        if [ ! -z "$UNRELEASED_COMMITS" ]; then
+            echo "## Unreleased Changes" >> $CHANGELOG_FILE
+            echo "" >> $CHANGELOG_FILE
+            echo "Processing unreleased changes..."
+            echo "$UNRELEASED_COMMITS" | while read -r COMMIT; do
+                HASH=$(echo $COMMIT | awk '{print $1}')
+                MESSAGE=$(echo $COMMIT | sed -E 's/^[^:]+(\([^)]+\))?: //')
+                echo "- $MESSAGE [\`$HASH\`]($GITHUB_REPO_URL/commit/$HASH)" >> $CHANGELOG_FILE
+            done
+            echo "" >> $CHANGELOG_FILE
+        fi
+
         # Get tags in reverse order
         TAGS=$(git tag --sort=-v:refname)
 
@@ -78,20 +95,6 @@ spec:
         echo "" >> $CHANGELOG_FILE
         echo "The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)." >> $CHANGELOG_FILE
         echo "" >> $CHANGELOG_FILE
-
-        # Collect and list unreleased changes
-        echo "## Unreleased Changes" >> $CHANGELOG_FILE
-        echo "" >> $CHANGELOG_FILE
-        echo "Processing unreleased changes..."
-        UNRELEASED_COMMITS=$(git log $(git describe --tags --abbrev=0)..HEAD --oneline)
-        if [ ! -z "$UNRELEASED_COMMITS" ]; then
-            echo "$UNRELEASED_COMMITS" | while read -r COMMIT; do
-                HASH=$(echo $COMMIT | awk '{print $1}')
-                MESSAGE=$(echo $COMMIT | sed -E 's/^[^:]+(\([^)]+\))?: //')
-                echo "- $MESSAGE [\`$HASH\`]($GITHUB_REPO_URL/commit/$HASH)" >> $CHANGELOG_FILE
-            done
-            echo "" >> $CHANGELOG_FILE
-        fi
 
         # Define categories
         CATEGORIES="feat fix ci perf docs gitops deploy test demo build chore style refactor"
