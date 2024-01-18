@@ -1,0 +1,185 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: cities-demo-test-long
+spec:
+  workspaces:
+  - name: shared-workspace
+  - name: registry-credentials
+  - name: github-credentials
+  params:
+  - name: git-url
+    type: string
+    description: "Url of the git repo for the code of deployment"
+    default: https://github.com/smichard/cities_demo
+  - name: git-revision
+    type: string
+    description: "Revision to be used from repo of the code for deployment"
+    default: main
+  - name: git-user-name
+    type: string
+    description: "Git user name for performing git operation"
+    default: "Stephan Michard"
+  - name: git-user-mail
+    type: string
+    description: "Git user email for performing git operation"
+    default: "stephan.michard@gmail.com"
+  - name: git-ssh-url
+    type: string
+    description: "Ssh url of the git repo for the code of deployment"
+    default: git@github.com:smichard/cities_demo.git
+  - name: image
+    type: string
+    description: "Image to be build from the code and push to internal registry"
+    default: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/cities-demo
+  - name: target-image
+    type: string
+    description: "Image to be build from the code and push to external registry"
+    default: quay.io/michard/cities
+  - name: path
+    type: string
+    description: "Provide path to the deployment yaml file"
+    default: "k8s/deployment.yml"
+  - name: message
+    type: string
+    description: "The message to send to the Matrix room"
+    default: "Cities Demo: new image build and pushed to internal and external registry. Build Tag:"
+  - name: notification-secret
+    type: string
+    description: "Secret containing the Matrix credentials"
+    default: "matrix-secret"
+  tasks:
+  - name: fetch-repository
+    taskRef:
+      name: git-clone
+      kind: ClusterTask
+    workspaces:
+    - name: output
+      workspace: shared-workspace
+    params:
+    - name: url
+      value: $(params.git-url)
+    - name: subdirectory
+      value: ""
+    - name: deleteExisting
+      value: "true"
+    - name: revision
+      value: $(params.git-revision)
+  - name: generate-changelog
+    taskRef:
+      name: generate-changelog
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    params:
+    - name: repo-url
+      value: $(params.git-url)
+    - name: changelog-file-name
+      value: "CHANGELOG.md"      
+    runAfter:
+    - fetch-repository
+  - name: get-git-tag
+    taskRef:
+      name: get-git-tag
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    runAfter:
+    - fetch-repository
+  - name: build-image-internal
+    retries: 3
+    taskRef:
+      name: buildah
+      kind: ClusterTask
+    params:
+    - name: IMAGE
+      value: $(params.image):$(tasks.get-git-tag.results.build-tag)
+    - name: DOCKERFILE
+      value: "./Containerfile"
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    runAfter:
+    - get-git-tag
+  - name: build-image-external
+    retries: 3
+    taskRef:
+      name: buildah
+      kind: ClusterTask
+    params:
+    - name: IMAGE
+      value: $(params.target-image):$(tasks.get-git-tag.results.build-tag)
+    - name: DOCKERFILE
+      value: "./Containerfile"
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    - name: dockerconfig
+      workspace: registry-credentials
+    runAfter:
+    - get-git-tag
+  - name: patch-deployment-file
+    taskRef:
+      name: patch-file
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    params:
+    - name: build-id
+      value: $(tasks.get-git-tag.results.build-tag)
+    - name: image
+      value: $(params.image):$(tasks.get-git-tag.results.build-tag)
+    - name: path
+      value: $(params.path)
+    runAfter:
+    - build-image-internal
+  - name: push-repository
+    taskRef:
+      name: git-cli
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    - name: ssh-directory
+      workspace: github-credentials
+    params:
+    - name: GIT_USER_NAME
+      value: $(params.git-user-name) 
+    - name: GIT_USER_EMAIL
+      value: $(params.git-user-mail) 
+    - name: revision
+      value: $(params.git-revision)
+    - name: GIT_SCRIPT
+      value: |
+        git config --global --add safe.directory /workspace/source
+        git remote set-url origin $(params.git-ssh-url)
+        #git stash push -m "Local changes before checkout"
+        git fetch origin main
+        git checkout -B main origin/main
+        #git stash pop
+        echo "test 1"
+        echo $(tasks.generate-changelog.results.changelog-file-path)
+        echo "test 1.5"
+        git add $(tasks.generate-changelog.results.changelog-file-path)
+        git commit -m "ci: :memo: changelog regenerated - build tag: $(tasks.get-git-tag.results.build-tag)"
+        echo "test 2"
+        git add $(params.path)
+        git commit -m "ci: :robot: new image deployed - build tag: $(tasks.get-git-tag.results.build-tag)"
+        echo "test 3"
+        git status
+        echo "test 4"
+        git push origin main
+        echo "test 5"
+    runAfter:
+    - patch-deployment-file
+    - generate-changelog
+  - name: notification
+    taskRef:
+      name: notification-to-matrix
+    params:
+    - name: message
+      value: $(params.target-image) $(params.message) $(tasks.get-git-tag.results.build-tag)
+    - name: notification-secret
+      value: $(params.notification-secret)
+    runAfter:
+      - push-repository
+      - build-image-external
