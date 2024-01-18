@@ -4,19 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.4.26 (2024-01-18)
+
 ## 0.4.25 (2024-01-18)
 
-### Continuous Integration
-- :robot: new image deployed - build tag: 0.4.25 [`6ffa075`](https://github.com/smichard/cities_demo/commit/6ffa075)
-- :memo: changelog regenerated - build tag: 0.4.25 [`e89ef38`](https://github.com/smichard/cities_demo/commit/e89ef38)
-
 ### Test
-- :construction: changelog generated locally 2 [`f99b7e1`](https://github.com/smichard/cities_demo/commit/f99b7e1)
-- :construction: changelog generated locally [`c5cfd3a`](https://github.com/smichard/cities_demo/commit/c5cfd3a)
-- :construction: testing changelog script [`c7e09a8`](https://github.com/smichard/cities_demo/commit/c7e09a8)
-
-### Other
-- Merge branch 'main' of https://github.com/smichard/cities_demo [`9ad1538`](https://github.com/smichard/cities_demo/commit/9ad1538)
+- :construction: testing latest changes of tekton task [`86a28ee`](https://github.com/smichard/cities_demo/commit/86a28ee)
 
 ## 0.4.24 (2024-01-18)
 
