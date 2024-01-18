@@ -5,11 +5,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
-## Unreleased Changes
+## 0.4.19 (2024-01-18)
 
 ## 0.4.18 (2024-01-18)
 
+### Test
+- :white_check_mark: testing latest changes to changelog script [`1ca1510`](https://github.com/smichard/cities_demo/commit/1ca1510)
+
 ## 0.4.17 (2024-01-18)
+
+### Feature
+- :sparkles: pipeline adjusted [`93b2b04`](https://github.com/smichard/cities_demo/commit/93b2b04)
+
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.4.17 [`b1cd830`](https://github.com/smichard/cities_demo/commit/b1cd830)
+- :memo: changelog regenerated - build tag: 0.4.17 [`15fba45`](https://github.com/smichard/cities_demo/commit/15fba45)
 
 ### Test
 - :white_check_mark: test recent pipeline changes [`7ac8f87`](https://github.com/smichard/cities_demo/commit/7ac8f87)
