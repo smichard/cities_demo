@@ -7,12 +7,55 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased Changes
 
+## 0.4.18 (2024-01-18)
+
 ## 0.4.17 (2024-01-18)
+
+### Test
+- :white_check_mark: test recent pipeline changes [`7ac8f87`](https://github.com/smichard/cities_demo/commit/7ac8f87)
 
 ## 0.4.16 (2024-01-17)
 
+### Feature
+- :sparkles: results added to tekton task [`abf13f0`](https://github.com/smichard/cities_demo/commit/abf13f0)
+- :sparkles: scripte to generate changelog added [`51bcbcb`](https://github.com/smichard/cities_demo/commit/51bcbcb)
+- :sparkles: custom tekton task added [`e152ea7`](https://github.com/smichard/cities_demo/commit/e152ea7)
+- :sparkles: added intro [`518d491`](https://github.com/smichard/cities_demo/commit/518d491)
+- :sparkles: deploy added to categories list [`eae698c`](https://github.com/smichard/cities_demo/commit/eae698c)
+- :construction: changelog script [`d785124`](https://github.com/smichard/cities_demo/commit/d785124)
+
+### Bug Fixes
+- :fire: temporary file deleted [`75edf7d`](https://github.com/smichard/cities_demo/commit/75edf7d)
+- :bug: finalized script to generate changelog [`1e453be`](https://github.com/smichard/cities_demo/commit/1e453be)
+- :bug: added comments and error handling [`3701077`](https://github.com/smichard/cities_demo/commit/3701077)
+
+### Continuous Integration
+- :memo: changelog regenerated - build tag: 0.4.16 [`9dc263b`](https://github.com/smichard/cities_demo/commit/9dc263b)
+- :robot: new image deployed - build tag: 0.4.16 [`f585595`](https://github.com/smichard/cities_demo/commit/f585595)
+
+### Documentation
+- Update Changelog [`326320b`](https://github.com/smichard/cities_demo/commit/326320b)
+
 ### Test
 - :construction: testing recent changes to ci pipeline [`21d4be5`](https://github.com/smichard/cities_demo/commit/21d4be5)
+- :construction: pipeline to test latest changes [`53bcab1`](https://github.com/smichard/cities_demo/commit/53bcab1)
+- :construction: testing recent changes to pipeline [`c1b0f3d`](https://github.com/smichard/cities_demo/commit/c1b0f3d)
+- :construction_worker: testing custom tekton tasks [`6f68394`](https://github.com/smichard/cities_demo/commit/6f68394)
+
+### Build
+- :bug: pipeline adjusted [`2678c9a`](https://github.com/smichard/cities_demo/commit/2678c9a)
+
+### Refactor
+- :fire: removed changelog file since generated through old github action workflow [`afaf407`](https://github.com/smichard/cities_demo/commit/afaf407)
+- :art: removed shell script [`0db03eb`](https://github.com/smichard/cities_demo/commit/0db03eb)
+- :rewind: github workflow adjusted [`447c099`](https://github.com/smichard/cities_demo/commit/447c099)
+
+### Other
+- Merge pull request #11 from smichard/feature-changelog [`4dd6c3c`](https://github.com/smichard/cities_demo/commit/4dd6c3c)
+- Merge pull request #4 from smichard/renovate/anothrnick-github-tag-action-1.x [`1dd207a`](https://github.com/smichard/cities_demo/commit/1dd207a)
+- Merge branch 'main' into feature-changelog [`4cb27df`](https://github.com/smichard/cities_demo/commit/4cb27df)
+- Merge branch 'main' into feature-changelog [`61e71ae`](https://github.com/smichard/cities_demo/commit/61e71ae)
+- Update anothrNick/github-tag-action action to v1.67.0 [`795b869`](https://github.com/smichard/cities_demo/commit/795b869)
 
 ## 0.4.15 (2024-01-16)
 
