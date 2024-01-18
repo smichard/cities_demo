@@ -156,15 +156,19 @@ spec:
         git fetch origin main
         git checkout -B main origin/main
         #git stash pop
-        git add CHANGELOG.md
+        echo "test 1"
+        echo $(tasks.generate-changelog.results.changelog-file-path)
+        echo "test 1.5"
+        git add $(tasks.generate-changelog.results.changelog-file-path)
         git commit -m "ci: :memo: changelog regenerated - build tag: $(tasks.get-git-tag.results.build-tag)"
+        echo "test 2"
         git add $(params.path)
         git commit -m "ci: :robot: new image deployed - build tag: $(tasks.get-git-tag.results.build-tag)"
-        echo test 1
+        echo "test 3"
         git status
-        echo test 2
+        echo "test 4"
         git push origin main
-        echo test 3
+        echo "test 5"
     runAfter:
     - patch-deployment-file
     - generate-changelog
