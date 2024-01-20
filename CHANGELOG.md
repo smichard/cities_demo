@@ -4,9 +4,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.4.29 (2024-01-20)
+
 ## 0.4.28 (2024-01-18)
 
+### Bug Fixes
+- :bug: changelog task finalized [`e121ae9`](https://github.com/smichard/cities_demo/commit/e121ae9)
+- :bug: pipeline run adjusted for correct image tag [`92703f4`](https://github.com/smichard/cities_demo/commit/92703f4)
+
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.4.28 [`826c770`](https://github.com/smichard/cities_demo/commit/826c770)
+- :memo: changelog regenerated - build tag: 0.4.28 [`c6e994b`](https://github.com/smichard/cities_demo/commit/c6e994b)
+
+### Test
+- :sparkles: testing final changelog tekton task [`db42791`](https://github.com/smichard/cities_demo/commit/db42791)
+- :construction: adjusted tekton task [`76439d6`](https://github.com/smichard/cities_demo/commit/76439d6)
+
+### Refactor
+- :fire: removed unnecessary file [`f9dbc3b`](https://github.com/smichard/cities_demo/commit/f9dbc3b)
+
 ## 0.4.27 (2024-01-18)
+
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.4.27 [`ae86da7`](https://github.com/smichard/cities_demo/commit/ae86da7)
+- :memo: changelog regenerated - build tag: 0.4.27 [`5372865`](https://github.com/smichard/cities_demo/commit/5372865)
 
 ### Test
 - :construction: testing tekton task [`068f14c`](https://github.com/smichard/cities_demo/commit/068f14c)
