@@ -4,7 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.0 (2024-01-20)
+
 ## 0.4.29 (2024-01-20)
+
+### Feature
+- :sparkles: tekton task finalized #minor [`35e3299`](https://github.com/smichard/cities_demo/commit/35e3299)
+
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.4.29 [`60ef1ae`](https://github.com/smichard/cities_demo/commit/60ef1ae)
+- :memo: changelog regenerated - build tag: 0.4.29 [`65df77e`](https://github.com/smichard/cities_demo/commit/65df77e)
 
 ## 0.4.28 (2024-01-18)
 
