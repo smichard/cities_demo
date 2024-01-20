@@ -37,7 +37,7 @@ spec:
   - name: image
     value: "image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/cities-demo"
   - name: target-image
-    value: "quay.io/michard/cities:tekton"
+    value: "quay.io/michard/cities"
   - name: message
     value: "Cities Demo: new image build and pushed to internal and external registry. Build Tag:"
   - name: notification-secret
