@@ -1,4 +1,0 @@
-FROM alpine:latest
-
-# Install Git
-RUN apk add --no-cache git
