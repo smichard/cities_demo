@@ -72,8 +72,6 @@ spec:
     - name: source
       workspace: shared-workspace
     params:
-    - name: repo-url
-      value: $(params.git-url)
     - name: changelog-file-name
       value: "CHANGELOG.md"      
     runAfter:
