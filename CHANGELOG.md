@@ -4,11 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
-## Unreleased changes
+## 0.5.5 (2024-01-25)
 
 ### Feature
 - :sparkles: GitHub Action added [`3cdf681`](https://github.com/smichard/cities_demo/commit/3cdf681)
 - :sparkles: local changelog script finalized [`9a86911`](https://github.com/smichard/cities_demo/commit/9a86911)
+
+### Bug Fixes
+- :bug: latest scripts to generate changelog copied to repository [`21aec5f`](https://github.com/smichard/cities_demo/commit/21aec5f)
 
 ### Continuous Integration
 - :robot: merge pull request #15 from smichard/renovate/smichard-conventional_changelog-2.x [`dde55ab`](https://github.com/smichard/cities_demo/commit/dde55ab)
@@ -19,9 +22,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - :memo: changelog regenerated - build tag: 0.5.4 [`95d20fe`](https://github.com/smichard/cities_demo/commit/95d20fe)
 
 ### Documentation
+- :robot: changelog file generated [`fc61ba9`](https://github.com/smichard/cities_demo/commit/fc61ba9)
 - :robot: changelog file generated [`cf7f0ab`](https://github.com/smichard/cities_demo/commit/cf7f0ab)
 - :robot: changelog file generated [`9a5b1d9`](https://github.com/smichard/cities_demo/commit/9a5b1d9)
 - :robot: changelog file generated [`66602ba`](https://github.com/smichard/cities_demo/commit/66602ba)
+
+### Test
+- :construction: testing latest workflow changes [`844191c`](https://github.com/smichard/cities_demo/commit/844191c)
 
 ### Chore
 - update smichard/conventional_changelog action to v2 [`220edc0`](https://github.com/smichard/cities_demo/commit/220edc0)
