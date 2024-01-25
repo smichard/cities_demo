@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - :sparkles: local changelog script finalized [`9a86911`](https://github.com/smichard/cities_demo/commit/9a86911)
 
 ### Continuous Integration
+- :robot: merge pull request #15 from smichard/renovate/smichard-conventional_changelog-2.x [`dde55ab`](https://github.com/smichard/cities_demo/commit/dde55ab)
 - :robot: merge pull request #14 from smichard/renovate/smichard-conventional_changelog-1.x [`ac25e3a`](https://github.com/smichard/cities_demo/commit/ac25e3a)
 - :robot: merge pull request #13 from smichard/renovate/smichard-conventional_changelog-1.x [`612ecea`](https://github.com/smichard/cities_demo/commit/612ecea)
 - :robot: merge pull request #12 from smichard/renovate/actions-checkout-4.x [`fa803f1`](https://github.com/smichard/cities_demo/commit/fa803f1)
@@ -18,10 +19,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - :memo: changelog regenerated - build tag: 0.5.4 [`95d20fe`](https://github.com/smichard/cities_demo/commit/95d20fe)
 
 ### Documentation
+- :robot: changelog file generated [`cf7f0ab`](https://github.com/smichard/cities_demo/commit/cf7f0ab)
 - :robot: changelog file generated [`9a5b1d9`](https://github.com/smichard/cities_demo/commit/9a5b1d9)
 - :robot: changelog file generated [`66602ba`](https://github.com/smichard/cities_demo/commit/66602ba)
 
 ### Chore
+- update smichard/conventional_changelog action to v2 [`220edc0`](https://github.com/smichard/cities_demo/commit/220edc0)
 - update smichard/conventional_changelog action to v1.0.4 [`bcca756`](https://github.com/smichard/cities_demo/commit/bcca756)
 - update smichard/conventional_changelog action to v1.0.3 [`4bbde37`](https://github.com/smichard/cities_demo/commit/4bbde37)
 - update actions/checkout action to v4 [`5d324f4`](https://github.com/smichard/cities_demo/commit/5d324f4)
