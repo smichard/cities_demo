@@ -4,11 +4,35 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
-## Unreleased changes
+## 0.5.6 (2024-02-07)
 
 ### Continuous Integration
+- :robot: merge pull request #19 from smichard/renovate/quay.io-michard-tekton_base_image-0.x [`0695c20`](https://github.com/smichard/cities_demo/commit/0695c20)
+- :robot: merge pull request #18 from smichard/renovate/smichard-conventional_changelog-2.x [`2ea789b`](https://github.com/smichard/cities_demo/commit/2ea789b)
+- :robot: merge pull request #16 from smichard/renovate/quay.io-michard-tekton_base_image-0.x [`d262b7e`](https://github.com/smichard/cities_demo/commit/d262b7e)
+- :robot: merge pull request #17 from smichard/renovate/smichard-conventional_changelog-2.x [`e45e233`](https://github.com/smichard/cities_demo/commit/e45e233)
 - :robot: new image deployed - build tag: 0.5.5 [`f291c93`](https://github.com/smichard/cities_demo/commit/f291c93)
 - :memo: changelog regenerated - build tag: 0.5.5 [`cc489c3`](https://github.com/smichard/cities_demo/commit/cc489c3)
+
+### Documentation
+- :robot: changelog file generated [`7cfe4bd`](https://github.com/smichard/cities_demo/commit/7cfe4bd)
+
+### Demo
+- :rocket: testing demo setup [`2b130d7`](https://github.com/smichard/cities_demo/commit/2b130d7)
+
+### Chore
+- update smichard/conventional_changelog action to v2.0.4 [`6925366`](https://github.com/smichard/cities_demo/commit/6925366)
+- update smichard/conventional_changelog action to v2.0.3 [`181cb4c`](https://github.com/smichard/cities_demo/commit/181cb4c)
+- update quay.io/michard/tekton_base_image docker tag to v0.1.13 [`e0c4a55`](https://github.com/smichard/cities_demo/commit/e0c4a55)
+- update smichard/conventional_changelog action to v2.0.1 [`d949c94`](https://github.com/smichard/cities_demo/commit/d949c94)
+- update quay.io/michard/tekton_base_image docker tag to v0.1.11 [`d933966`](https://github.com/smichard/cities_demo/commit/d933966)
+
+### Refactor
+- :art: changelog script renamed for consistency [`7ab7af4`](https://github.com/smichard/cities_demo/commit/7ab7af4)
+
+### Other
+- Merge pull request #20 from smichard/renovate/smichard-conventional_changelog-2.x [`cf9bc7f`](https://github.com/smichard/cities_demo/commit/cf9bc7f)
+- Merge branch 'main' of https://github.com/smichard/cities_demo [`9c1bb0d`](https://github.com/smichard/cities_demo/commit/9c1bb0d)
 
 ## 0.5.5 (2024-01-25)
 
