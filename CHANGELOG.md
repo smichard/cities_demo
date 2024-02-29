@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.7 (2024-02-29)
+
+### Feature
+- :sparkles: connection to minio added to devfile [`ccbfb55`](https://github.com/smichard/cities_demo/commit/ccbfb55)
+
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.5.6 [`a650847`](https://github.com/smichard/cities_demo/commit/a650847)
+- :memo: changelog regenerated - build tag: 0.5.6 [`67c80f9`](https://github.com/smichard/cities_demo/commit/67c80f9)
+
+### Demo
+- :rocket: test demo [`34be100`](https://github.com/smichard/cities_demo/commit/34be100)
+
+### Refactor
+- :sparkles: devfile container changed to newest version [`d5a6e91`](https://github.com/smichard/cities_demo/commit/d5a6e91)
+
 ## 0.5.6 (2024-02-07)
 
 ### Continuous Integration
