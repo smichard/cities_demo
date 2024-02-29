@@ -26,7 +26,7 @@ projects:
 components:
   - name: devspaces-container
     container:
-      image: quay.io/michard/devspaces_base_image:0.1.2
+      image: quay.io/michard/devspaces_base_image:0.1.5
       sourceMapping: /projects
       env:
         - name: CHE_DASHBOARD_URL
@@ -47,36 +47,16 @@ components:
           protocol: tcp
           targetPort: 2475   
 commands:
-  - id: start-kubedock
-    exec:
-      label: '1. Start kubedock'
-      component: devspaces-container
-      commandLine: kubedock server --port-forward
-  - id: pull
-    exec:
-      label: '2. Pull Base Image'
-      component: devspaces-container
-      commandLine: podman pull registry.access.redhat.com/ubi8/nginx-122
-  - id: build
-    exec:
-      label: '3. Build Current State'
-      component: devspaces-container
-      commandLine: podman build --arch=amd64 -t quay.io/michard/cities -f Containerfile
-  - id: cities-podman-run
-    exec:
-      label: '4. Run Skaffold'
-      component: devspaces-container
-      commandLine: oc project dev && podman build --arch=amd64 -t quay.io/michard/cities -f Containerfile_skaffold && skaffold dev --check-cluster-node-platforms=false
-  - id: podman-run
-    exec:
-      label: '5. Podman Remove Cities Container'
-      component: devspaces-container
-      commandLine: echo hello world
   - id: post-start-cmd
     exec:
-      label: '6. Post Start Commands'
+      label: 'Post Start Commands'
       component: devspaces-container
       commandLine: git config --global pull.rebase true
+  - id: connect-to-minio
+    exec:
+      label: 'Connect to MinIO'
+      component: devspaces-container
+      commandLine: mc alias set s3 $minio-endpoint $minio-access-key $minio-secret-key
 events:
   postStart:
     - post-start-cmd
