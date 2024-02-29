@@ -56,7 +56,8 @@ commands:
     exec:
       label: 'Connect to MinIO'
       component: devspaces-container
-      commandLine: mc alias set s3 $minio-endpoint $minio-access-key $minio-secret-key
+      commandLine: mc alias set s3 $MINIO_ENDPOINT $MINIO_ACCESS_KEY $MINIO_SECRET_KEY
 events:
   postStart:
     - post-start-cmd
+    - connect-to-minio
