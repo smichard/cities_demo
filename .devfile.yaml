@@ -26,7 +26,7 @@ projects:
 components:
   - name: devspaces-container
     container:
-      image: quay.io/michard/devspaces_base_image:0.1.5
+      image: quay.io/michard/devspaces_base_image:0.1.9
       sourceMapping: /projects
       env:
         - name: CHE_DASHBOARD_URL
@@ -41,11 +41,6 @@ components:
           value: OpenShift console
         - name: OPENVSX_REGISTRY_URL
           value: 'https://open-vsx.org/'
-      endpoints:
-        - exposure: none
-          name: kubedock
-          protocol: tcp
-          targetPort: 2475   
 commands:
   - id: post-start-cmd
     exec:
