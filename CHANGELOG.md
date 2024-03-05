@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.10 (2024-03-05)
+
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.5.9 [`fbb9bbe`](https://github.com/smichard/cities_demo/commit/fbb9bbe)
+- :memo: changelog regenerated - build tag: 0.5.9 [`f410ffa`](https://github.com/smichard/cities_demo/commit/f410ffa)
+
+### Demo
+- :rocket: testing new matrix setup [`7ffda91`](https://github.com/smichard/cities_demo/commit/7ffda91)
+
+### Refactor
+- :sparkles: container tag updated for latest tag [`b44f0d2`](https://github.com/smichard/cities_demo/commit/b44f0d2)
+- :sparkles: devcontainer adjusted for latest tag [`bf6db4a`](https://github.com/smichard/cities_demo/commit/bf6db4a)
+- :sparkles: devspaces container tag adjusted for latest tag [`b5f154e`](https://github.com/smichard/cities_demo/commit/b5f154e)
+- :rocket: devcontainer tag updated to latest version [`020c888`](https://github.com/smichard/cities_demo/commit/020c888)
+- :sparkles: devspace container tag updated to latest tag [`b876efc`](https://github.com/smichard/cities_demo/commit/b876efc)
+
 ## 0.5.9 (2024-02-29)
 
 ### Continuous Integration
