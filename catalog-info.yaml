@@ -1,0 +1,139 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: cities-demo-web-app
+  title: Cities Demo Web Application
+  description: |
+    The demo consists of a simple web application. It includes various index.html files, which can be permuted using a helper script (update_script.sh). This demonstrates code changes and their deployment process. The website is hosted using an Nginx-based container on a Kubernetes platform.
+  tags:
+    - web
+    - nginx
+    - kubernetes
+spec:
+  type: service
+  lifecycle: experimental
+  owner: team-web
+  system: cities-demo-system
+  links:
+    - url: https://github.com/smichard/cities_demo
+      title: GitHub Repository
+    - url: https://console-openshift-console.apps.ocp.michard.cc
+      title: Console
+    - url: https://openshift-gitops-server-openshift-gitops.apps.ocp.michard.cc
+      title: GitOps
+    - url: https://console-openshift-console.apps.ocp.michard.cc/dev-pipelines/ns/build-environment
+      title: Pipelines
+    - url: https://devspaces.apps.ocp.michard.cc/dashboard
+      title: DevSpaces
+    - url: https://uptime-kuma.apps.ocp.michard.cc/status/lab
+      title: Uptime Monitoring
+    - url: https://element.apps.ocp.michard.cc
+      title: Chat
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: console
+  title: Console
+  description: OpenShift Console for managing Kubernetes resources.
+  tags:
+    - openshift
+    - console
+spec:
+  type: tool
+  lifecycle: production
+  owner: platform-team
+  system: infrastructure
+  links:
+    - url: https://console-openshift-console.apps.ocp.michard.cc
+      title: OpenShift Console
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gitops
+  title: GitOps
+  description: OpenShift GitOps for declarative configuration and management.
+  tags:
+    - gitops
+    - openshift
+spec:
+  type: tool
+  lifecycle: production
+  owner: devops-team
+  system: infrastructure
+  links:
+    - url: https://openshift-gitops-server-openshift-gitops.apps.ocp.michard.cc
+      title: OpenShift GitOps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: pipelines
+  title: Pipelines
+  description: Pipeline management interface within OpenShift Console.
+  tags:
+    - pipelines
+    - ci/cd
+spec:
+  type: tool
+  lifecycle: production
+  owner: cicd-team
+  system: development-tools
+  links:
+    - url: https://console-openshift-console.apps.ocp.michard.cc/dev-pipelines/ns/build-environment
+      title: Pipelines
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: devspaces
+  title: DevSpaces
+  description: Developer environments and workspaces management tool.
+  tags:
+    - devspaces
+    - development
+spec:
+  type: tool
+  lifecycle: production
+  owner: developer-experience-team
+  system: development-tools
+  links:
+    - url: https://devspaces.apps.ocp.michard.cc/dashboard
+      title: DevSpaces
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: uptime-monitoring
+  title: Uptime Monitoring
+  description: Uptime Kuma instance for monitoring service availability.
+  tags:
+    - monitoring
+    - uptime
+spec:
+  type: service
+  lifecycle: production
+  owner: monitoring-team
+  system: monitoring-tools
+  links:
+    - url: https://uptime-kuma.apps.ocp.michard.cc/status/lab
+      title: Uptime Monitoring
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: chat
+  title: Chat
+  description: Element chat service for team communication.
+  tags:
+    - chat
+    - communication
+spec:
+  type: service
+  lifecycle: production
+  owner: communication-team
+  system: collaboration-tools
+  links:
+    - url: https://element.apps.ocp.michard.cc
+      title: Chat
