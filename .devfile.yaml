@@ -10,7 +10,7 @@ attributes:
   controller.devfile.io/devworkspace-config:
     name: devworkspace-config
     namespace: openshift-operators
-  controller.devfile.io/scc: container-build
+  #controller.devfile.io/scc: container-build
   controller.devfile.io/storage-type: per-user
   dw.metadata.annotations:
     che.eclipse.org/devfile-source: |
