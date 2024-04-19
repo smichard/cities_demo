@@ -8,6 +8,7 @@
       "redhat.vscode-openshift-connector",
       "esbenp.prettier-vscode",
       "laurenttreguier.vscode-simple-icons",
-      "vivaxy.vscode-conventional-commits"
+      "vivaxy.vscode-conventional-commits",
+      "genuitecllc.codetogether"
     ]
 }
