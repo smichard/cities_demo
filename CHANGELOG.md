@@ -4,6 +4,41 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.12 (2024-04-18)
+
+### Feature
+- :sparkles: backstage catalog added [`9937b2d`](https://github.com/smichard/cities_demo/commit/9937b2d)
+
+### Bug Fixes
+- :fire: removed ansible plugin [`b75847b`](https://github.com/smichard/cities_demo/commit/b75847b)
+
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.5.11 [`ee926c7`](https://github.com/smichard/cities_demo/commit/ee926c7)
+- :memo: changelog regenerated - build tag: 0.5.11 [`57aba69`](https://github.com/smichard/cities_demo/commit/57aba69)
+
+### Test
+- :construction: testing kubedock [`afde6da`](https://github.com/smichard/cities_demo/commit/afde6da)
+
+### Demo
+- :rocket: testing demo [`0b35bfc`](https://github.com/smichard/cities_demo/commit/0b35bfc)
+
+### Build
+- :sparkles: added conventional commits to vscode extension [`8c69694`](https://github.com/smichard/cities_demo/commit/8c69694)
+
+### Chore
+- update quay.io/michard/devspaces_base_image docker tag to v0.1.19 [`cd6c16c`](https://github.com/smichard/cities_demo/commit/cd6c16c)
+- update anothrnick/github-tag-action action to v1.69.0 [`1aee3d3`](https://github.com/smichard/cities_demo/commit/1aee3d3)
+- update quay.io/michard/devspaces_base_image docker tag to v0.1.17 [`8c83faf`](https://github.com/smichard/cities_demo/commit/8c83faf)
+
+### Refactor
+- :bug: removed scc to build containers: https://access.redhat.com/documentation/en-us/red_hat_openshift_dev_spaces/3.3/html-single/release_notes_and_known_issues/index#enhancement-crw-3637 [`2320cf5`](https://github.com/smichard/cities_demo/commit/2320cf5)
+- :fire: removed some extensions [`bcb0d54`](https://github.com/smichard/cities_demo/commit/bcb0d54)
+
+### Other
+- Merge pull request #24 from smichard/renovate/quay.io-michard-devspaces_base_image-0.x [`08061ea`](https://github.com/smichard/cities_demo/commit/08061ea)
+- Merge pull request #23 from smichard/renovate/anothrnick-github-tag-action-1.x [`cbe904f`](https://github.com/smichard/cities_demo/commit/cbe904f)
+- Merge pull request #22 from smichard/renovate/quay.io-michard-devspaces_base_image-0.x [`350dc91`](https://github.com/smichard/cities_demo/commit/350dc91)
+
 ## 0.5.11 (2024-03-05)
 
 ### Continuous Integration
