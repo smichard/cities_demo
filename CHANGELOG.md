@@ -4,6 +4,41 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.14 (2024-07-05)
+
+### Demo
+- :rocket: ocp demo [`c38f04f`](https://github.com/smichard/cities_demo/commit/c38f04f)
+
+### Chore
+- update smichard/conventional_changelog action to v2.0.5 [`4364dcb`](https://github.com/smichard/cities_demo/commit/4364dcb)
+- update quay.io/michard/tekton_base_image docker tag to v0.1.14 [`83e6cbf`](https://github.com/smichard/cities_demo/commit/83e6cbf)
+- update quay.io/michard/devspaces_base_image docker tag to v0.1.20 [`a29708a`](https://github.com/smichard/cities_demo/commit/a29708a)
+
+### Other
+- Merge pull request #27 from smichard/renovate/smichard-conventional_changelog-2.x [`a530e07`](https://github.com/smichard/cities_demo/commit/a530e07)
+- Merge pull request #26 from smichard/renovate/quay.io-michard-tekton_base_image-0.x [`f638559`](https://github.com/smichard/cities_demo/commit/f638559)
+- Merge pull request #25 from smichard/renovate/quay.io-michard-devspaces_base_image-0.x [`e746c42`](https://github.com/smichard/cities_demo/commit/e746c42)
+
+## 0.5.13 (2024-05-21)
+
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.5.12 [`c6ab4da`](https://github.com/smichard/cities_demo/commit/c6ab4da)
+- :memo: changelog regenerated - build tag: 0.5.12 [`6bf8e34`](https://github.com/smichard/cities_demo/commit/6bf8e34)
+
+### Test
+- :construction: testing kubedock [`6febeab`](https://github.com/smichard/cities_demo/commit/6febeab)
+- :construction: testing kubedock [`47c4a60`](https://github.com/smichard/cities_demo/commit/47c4a60)
+
+### Demo
+- :rocket: preparing demo [`2e70c76`](https://github.com/smichard/cities_demo/commit/2e70c76)
+- :rocket: vscode extension file adjusted [`7143cc0`](https://github.com/smichard/cities_demo/commit/7143cc0)
+
+### Build
+- :rocket: CodeTogether extension added [`023d1f8`](https://github.com/smichard/cities_demo/commit/023d1f8)
+
+### Other
+- demo [`e021d11`](https://github.com/smichard/cities_demo/commit/e021d11)
+
 ## 0.5.12 (2024-04-18)
 
 ### Feature
