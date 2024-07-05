@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.18 (2024-07-05)
+
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.5.17 [`cff45c0`](https://github.com/smichard/cities_demo/commit/cff45c0)
+- :memo: changelog regenerated - build tag: 0.5.17 [`73e92cc`](https://github.com/smichard/cities_demo/commit/73e92cc)
+
+### Demo
+- :rocket: ocp demo [`08b3b3c`](https://github.com/smichard/cities_demo/commit/08b3b3c)
+
 ## 0.5.17 (2024-07-05)
 
 ### Continuous Integration
