@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.21 (2024-07-09)
+
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.5.20 [`23af509`](https://github.com/smichard/cities_demo/commit/23af509)
+- :memo: changelog regenerated - build tag: 0.5.20 [`3d8ef4d`](https://github.com/smichard/cities_demo/commit/3d8ef4d)
+
+### GitOps
+- :rocket: scale down [`5b27608`](https://github.com/smichard/cities_demo/commit/5b27608)
+
+### Deployment
+- :rocket: scale [`c8118eb`](https://github.com/smichard/cities_demo/commit/c8118eb)
+
+### Other
+- demo [`dce7515`](https://github.com/smichard/cities_demo/commit/dce7515)
+
 ## 0.5.20 (2024-07-05)
 
 ### Continuous Integration
