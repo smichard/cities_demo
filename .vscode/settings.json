@@ -2,6 +2,6 @@
     "ansible.python.interpreterPath": "/usr/bin/python3",
     "window.menuBarVisibility": "visible",
     "editor.fontSize": 14,
-    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.fontFamily": "'MesloLGS NF'",
     "terminal.integrated.fontSize": 14
 }
