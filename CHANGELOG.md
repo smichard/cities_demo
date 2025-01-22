@@ -4,7 +4,32 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
-## Unreleased changes
+## 0.5.23 (2025-01-22)
+
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.5.22 [`a47e921`](https://github.com/smichard/cities_demo/commit/a47e921)
+- :memo: changelog regenerated - build tag: 0.5.22 [`274bfbe`](https://github.com/smichard/cities_demo/commit/274bfbe)
+
+### Test
+- :construction: test [`7d39f4e`](https://github.com/smichard/cities_demo/commit/7d39f4e)
+
+### Build
+- :rocket: workflow adjusted to new build setup [`1fb8b0c`](https://github.com/smichard/cities_demo/commit/1fb8b0c)
+- :rocket: adjusted to new build setup [`b94a540`](https://github.com/smichard/cities_demo/commit/b94a540)
+
+### Chore
+- update dependency ubuntu to v24 [`5050b94`](https://github.com/smichard/cities_demo/commit/5050b94)
+- update quay.io/michard/tekton_base_image docker tag to v0.1.17 [`2267fca`](https://github.com/smichard/cities_demo/commit/2267fca)
+- update smichard/conventional_changelog action to v2.0.6 [`65c834a`](https://github.com/smichard/cities_demo/commit/65c834a)
+
+### Other
+- Merge branch 'main' of https://github.com/smichard/cities_demo [`477038c`](https://github.com/smichard/cities_demo/commit/477038c)
+- Merge pull request #28 from smichard/renovate/quay.io-michard-tekton_base_image-0.x [`22e9717`](https://github.com/smichard/cities_demo/commit/22e9717)
+- Merge pull request #29 from smichard/renovate/smichard-conventional_changelog-2.x [`eedc9fb`](https://github.com/smichard/cities_demo/commit/eedc9fb)
+- Merge pull request #30 from smichard/renovate/anothrnick-github-tag-action-1.x [`9fd2749`](https://github.com/smichard/cities_demo/commit/9fd2749)
+- Merge pull request #31 from smichard/renovate/ubuntu-24.x [`5c43d23`](https://github.com/smichard/cities_demo/commit/5c43d23)
+- Update settings.json [`c6bc772`](https://github.com/smichard/cities_demo/commit/c6bc772)
+- Update settings.json [`3976b84`](https://github.com/smichard/cities_demo/commit/3976b84)
 
 ## 0.5.22 (2024-09-23)
 
