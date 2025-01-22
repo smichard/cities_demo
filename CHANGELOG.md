@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## Unreleased changes
+
+## 0.5.22 (2024-09-23)
+
+### Continuous Integration
+- :robot: new image deployed - build tag: 0.5.21 [`b57f3cd`](https://github.com/smichard/cities_demo/commit/b57f3cd)
+- :memo: changelog regenerated - build tag: 0.5.21 [`75729b8`](https://github.com/smichard/cities_demo/commit/75729b8)
+
+### Chore
+- update anothrnick/github-tag-action action to v1.71.0 [`bfabcab`](https://github.com/smichard/cities_demo/commit/bfabcab)
+
+### Other
+- scale [`25daf6d`](https://github.com/smichard/cities_demo/commit/25daf6d)
+- scale [`abde295`](https://github.com/smichard/cities_demo/commit/abde295)
+
 ## 0.5.21 (2024-07-09)
 
 ### Continuous Integration
