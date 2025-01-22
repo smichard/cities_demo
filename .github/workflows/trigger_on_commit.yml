@@ -25,9 +25,36 @@ jobs:
         DEFAULT_BUMP: patch
         DEFAULT_BRANCH: main
         WITH_V: false
+ 
+  changelog:
+    needs: bump_tag
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    name: Generate and Commit Changelog
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Generate Changelog
+      uses: smichard/conventional_changelog@2.0.8
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Set Git User Info
+      run: |
+        git config user.name 'GitHub Actions Bot'
+        git config user.email 'actions@github.com'
+
+    - name: Commit Changelog
+      run: |
+        git add CHANGELOG.md
+        git commit -m "docs: :robot: changelog file generated" || echo "No changes to commit"
+        git push
 
   notification:
-    needs: bump_tag
+    needs: changelog
     runs-on: ubuntu-latest
     steps:
       - name: notification
@@ -37,17 +64,10 @@ jobs:
           access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
           server: ${{ secrets.MATRIX_SERVER }}
           message: |
-            "${{ github.repository }}": changes to source directory detected<br />
-            **Tekton pipeline triggered**<br />
+            "${{ github.repository }}":<br />
+            **new updates pushed to the repository — triggering quay build**<br />
             commit message: **${{ github.event.head_commit.message }}** <br />
             contributor: **${{ github.actor }}** <br />
             commit sha: **${{ github.sha }}** <br />
             commit history: **[link](https://github.com/${{ github.repository }}/commits/main)** <br />
-            Pipeline: **[link](https://console-openshift-console.apps.ocp.michard.cc/pipelines/ns/build-environment)** <br />
-  
-  delay_job:
-    needs: notification
-    runs-on: ubuntu-latest
-    steps:
-    - name: Delay workflow
-      run: sleep 40
+            image registry: **[Quay.io](https://quay.io/repository/michard/cities?tab=tags)** <br />
