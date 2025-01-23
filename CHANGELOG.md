@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.34 (2025-01-23)
+
+### Documentation
+- :robot: changelog file generated [`b541a7a`](https://github.com/smichard/cities_demo/commit/b541a7a)
+
+### Test
+- :truck: test [`bdfc317`](https://github.com/smichard/cities_demo/commit/bdfc317)
+
+### Build
+- :rocket: debugging [`6564272`](https://github.com/smichard/cities_demo/commit/6564272)
+
+### Other
+- Merge branch 'main' of https://github.com/smichard/cities_demo [`6d643d0`](https://github.com/smichard/cities_demo/commit/6d643d0)
+
 ## 0.5.33 (2025-01-23)
 
 ### Test
