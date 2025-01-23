@@ -71,6 +71,17 @@ jobs:
         git status
         git describe --tags
         git describe --tags --abbrev=0
+        # Fetch the latest changes
+        git fetch --tags
+        echo "Fetched latest tags."
+        git describe --tags
+        # Get the latest tag
+        LATEST_TAG=$(git describe --tags --abbrev=0)
+        # Get tags in reverse order
+        TAGS=$(git tag --sort=-v:refname)
+        git tag --sort=-v:refname
+        echo $TAG
+        ###
         TAG=$(git describe --tags --abbrev=0 || echo "latest")
         echo "TAG=$TAG" >> $GITHUB_ENV
 
