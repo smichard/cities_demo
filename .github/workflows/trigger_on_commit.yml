@@ -67,7 +67,8 @@ jobs:
     - name: Get tag from bumped version
       id: tag
       run: |
-        echo "::set-output name=TAG::$(git describe --tags --abbrev=0)"
+        TAG=$(git describe --tags --abbrev=0 || echo "latest")
+        echo "::set-output name=TAG::$TAG"
 
     - name: Build the container image
       run: |
