@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.35 (2025-01-23)
+
+### Documentation
+- :robot: changelog file generated [`e446ef4`](https://github.com/smichard/cities_demo/commit/e446ef4)
+
+### Build
+- :rocket: build workflow finalized [`13aeb32`](https://github.com/smichard/cities_demo/commit/13aeb32)
+
+### Chore
+- update quay.io/michard/nginx_base_image docker tag to v0.2.9 [`e27047c`](https://github.com/smichard/cities_demo/commit/e27047c)
+
+### Other
+- Merge branch 'main' of https://github.com/smichard/cities_demo [`ef5ccfe`](https://github.com/smichard/cities_demo/commit/ef5ccfe)
+
 ## 0.5.34 (2025-01-23)
 
 ### Documentation
