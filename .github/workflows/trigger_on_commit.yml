@@ -67,6 +67,10 @@ jobs:
     - name: Get tag from bumped version
       id: tag
       run: |
+        ls
+        git status
+        git describe --tags
+        git describe --tags --abbrev=0
         TAG=$(git describe --tags --abbrev=0 || echo "latest")
         echo "TAG=$TAG" >> $GITHUB_ENV
 
