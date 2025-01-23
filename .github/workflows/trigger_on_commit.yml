@@ -68,15 +68,15 @@ jobs:
       id: tag
       run: |
         TAG=$(git describe --tags --abbrev=0 || echo "latest")
-        echo "::set-output name=TAG::$TAG"
+        echo "TAG=$TAG" >> $GITHUB_ENV
 
     - name: Build the container image
       run: |
-        docker build -f Containerfile -t quay.io/repository/michard/cities:${{ steps.tag.outputs.TAG }} .
+        docker build -f Containerfile -t quay.io/michard/cities:${{ env.TAG }} .
 
     - name: Push the container image to the target registry
       run: |
-        docker push quay.io/repository/michard/cities:${{ steps.tag.outputs.TAG }}
+        docker push quay.io/michard/cities:${{ env.TAG }}
 
   notification:
     needs: build_and_push
