@@ -73,14 +73,17 @@ jobs:
         git describe --tags
         # Get the latest tag
         LATEST_TAG=$(git describe --tags --abbrev=0)
+        echo "Latest Tag"
         echo $LATEST_TAG
         # Get tags in reverse order
         TAGS=$(git tag --sort=-v:refname)
         git tag --sort=-v:refname
-        echo $TAG
+        echo "Tags"
+        echo $TAGS
         ###
         TAG=$(git describe --tags --abbrev=0 || echo "latest")
         echo "TAG=$TAG" >> $GITHUB_ENV
+        echo "final Tag"
         echo $TAG
 
     - name: Build the container image
