@@ -4,6 +4,36 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.31 (2025-01-23)
+
+### Test
+- :truck: [`3ecc47c`](https://github.com/smichard/cities_demo/commit/3ecc47c)
+
+### Build
+- :rocket: debugging [`79dcb7a`](https://github.com/smichard/cities_demo/commit/79dcb7a)
+
+## 0.5.30 (2025-01-23)
+
+### Test
+- :truck: test [`9653d42`](https://github.com/smichard/cities_demo/commit/9653d42)
+
+### Build
+- :ambulance: debugging [`b845592`](https://github.com/smichard/cities_demo/commit/b845592)
+
+## 0.5.29 (2025-01-23)
+
+### Documentation
+- :robot: changelog file generated [`afeed58`](https://github.com/smichard/cities_demo/commit/afeed58)
+
+### Test
+- :truck: test [`50cd190`](https://github.com/smichard/cities_demo/commit/50cd190)
+
+### Build
+- :ambulance: debugging workflow [`9b38d7b`](https://github.com/smichard/cities_demo/commit/9b38d7b)
+
+### Other
+- Merge branch 'main' of https://github.com/smichard/cities_demo [`9ce3a20`](https://github.com/smichard/cities_demo/commit/9ce3a20)
+
 ## 0.5.28 (2025-01-23)
 
 ### Documentation
