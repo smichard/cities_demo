@@ -67,10 +67,8 @@ jobs:
     - name: Get tag from bumped version
       id: tag
       run: |
-        ls
+        echo start
         git status
-        git describe --tags
-        git describe --tags --abbrev=0
         # Fetch the latest changes
         git fetch --tags
         echo "Fetched latest tags."
