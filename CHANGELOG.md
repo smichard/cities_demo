@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.28 (2025-01-23)
+
+### Documentation
+- :robot: changelog file generated [`3550e01`](https://github.com/smichard/cities_demo/commit/3550e01)
+
+### Test
+- :truck: testing [`fcabd9b`](https://github.com/smichard/cities_demo/commit/fcabd9b)
+
+### Build
+- :rocket: tag retrieval updated [`81873ee`](https://github.com/smichard/cities_demo/commit/81873ee)
+
 ## 0.5.27 (2025-01-23)
 
 ### Test
