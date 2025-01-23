@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.24 (2025-01-23)
+
+### Documentation
+- :robot: changelog file generated [`930787e`](https://github.com/smichard/cities_demo/commit/930787e)
+
+### Chore
+- update quay.io/michard/tekton_base_image docker tag to v0.1.28 [`51b9b0f`](https://github.com/smichard/cities_demo/commit/51b9b0f)
+
 ## 0.5.23 (2025-01-22)
 
 ### Continuous Integration
