@@ -53,8 +53,32 @@ jobs:
         git commit -m "docs: :robot: changelog file generated" || echo "No changes to commit"
         git push
 
-  notification:
+  build_and_push:
     needs: changelog
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Log in to target registry
+      run: |
+        echo ${{ secrets.TARGET_REGISTRY_PASSWORD }} | docker login ${{ secrets.TARGET_REGISTRY_URL }} -u ${{ secrets.TARGET_REGISTRY_USERNAME }} --password-stdin
+
+    - name: Get tag from bumped version
+      id: tag
+      run: |
+        echo "::set-output name=TAG::$(git describe --tags --abbrev=0)"
+
+    - name: Build the container image
+      run: |
+        docker build -f Containerfile -t ${{ secrets.TARGET_REGISTRY_URL }}/repository/michard/cities:${{ steps.tag.outputs.TAG }} .
+
+    - name: Push the container image to the target registry
+      run: |
+        docker push ${{ secrets.TARGET_REGISTRY_URL }}/repository/michard/cities:${{ steps.tag.outputs.TAG }}
+
+  notification:
+    needs: build_and_push
     runs-on: ubuntu-latest
     steps:
       - name: notification
