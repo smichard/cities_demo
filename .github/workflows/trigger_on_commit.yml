@@ -41,6 +41,10 @@ jobs:
       uses: smichard/conventional_changelog@2.0.8
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+     
+    - name: Fix file permissions
+      run: |
+        sudo chown -R $(whoami):$(whoami) .
 
     - name: Set Git User Info
       run: |
