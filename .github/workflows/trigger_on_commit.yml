@@ -42,9 +42,9 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      
-    - name: Fix file permissions
-      run: |
-        sudo chown -R $(whoami):$(whoami) .
+#    - name: Fix file permissions
+#      run: |
+#        sudo chown -R $(whoami):$(whoami) .
 
     - name: Set Git User Info
       run: |
