@@ -76,11 +76,12 @@ jobs:
 
     - name: Build the container image
       run: |
-        docker build -f Containerfile -t quay.io/michard/cities:${{ env.TAG }} .
+        docker build -f Containerfile -t quay.io/michard/cities:${{ env.TAG }} -t quay.io/michard/cities:latest .
 
     - name: Push the container image to the target registry
       run: |
         docker push quay.io/michard/cities:${{ env.TAG }}
+        docker push quay.io/michard/cities:latest
 
   notification:
     needs: build_and_push
