@@ -4,6 +4,31 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.42 (2025-02-05)
+
+### Test
+- :white_check_mark: testing [`bb81ae3`](https://github.com/smichard/cities_demo/commit/bb81ae3)
+
+### Chore
+- update quay.io/michard/tekton_base_image docker tag to v0.1.30 [`119e426`](https://github.com/smichard/cities_demo/commit/119e426)
+
+### Other
+- Merge branch 'main' of https://github.com/smichard/cities_demo [`b556e8b`](https://github.com/smichard/cities_demo/commit/b556e8b)
+- Merge pull request #37 from smichard/renovate/quay.io-michard-tekton_base_image-0.x [`ec605bf`](https://github.com/smichard/cities_demo/commit/ec605bf)
+
+## 0.5.41 (2025-02-05)
+
+### Other
+- Merge pull request #36 from smichard/renovate/quay.io-michard-nginx_base_image-0.x [`0db9226`](https://github.com/smichard/cities_demo/commit/0db9226)
+
+## 0.5.40 (2025-02-05)
+
+### Documentation
+- :robot: changelog file generated [`8890c98`](https://github.com/smichard/cities_demo/commit/8890c98)
+
+### Chore
+- update quay.io/michard/nginx_base_image docker tag to v0.2.12 [`4263da1`](https://github.com/smichard/cities_demo/commit/4263da1)
+
 ## 0.5.39 (2025-02-05)
 
 ### Bug Fixes
