@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.39 (2025-02-05)
+
+### Bug Fixes
+- :bug: insufficient permissions during workflow execution [`7f48ea6`](https://github.com/smichard/cities_demo/commit/7f48ea6)
+
+### Test
+- :white_check_mark: testing latest changes [`6bcd4bc`](https://github.com/smichard/cities_demo/commit/6bcd4bc)
+
+## 0.5.38 (2025-02-05)
+
+### Documentation
+- :robot: changelog file generated [`48fafc5`](https://github.com/smichard/cities_demo/commit/48fafc5)
+
+### Test
+- :white_check_mark: testing latest changes to build pipeline [`18f3038`](https://github.com/smichard/cities_demo/commit/18f3038)
+
+### Build
+- :rocket: github workflow adjusted for multi arch build [`546b460`](https://github.com/smichard/cities_demo/commit/546b460)
+
+### Other
+- Merge branch 'main' of https://github.com/smichard/cities_demo [`aad497c`](https://github.com/smichard/cities_demo/commit/aad497c)
+
 ## 0.5.37 (2025-02-05)
 
 ### Test
