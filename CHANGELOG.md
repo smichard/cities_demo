@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.48 (2025-02-28)
+
+### Demo
+- :rocket: demo [`6bf0337`](https://github.com/smichard/cities_demo/commit/6bf0337)
+
+## 0.5.47 (2025-02-28)
+
+### Documentation
+- :robot: changelog file generated [`d647fd1`](https://github.com/smichard/cities_demo/commit/d647fd1)
+
+### Demo
+- :rocket: test [`e212dcc`](https://github.com/smichard/cities_demo/commit/e212dcc)
+
 ## 0.5.46 (2025-02-28)
 
 ### Documentation
