@@ -18,7 +18,7 @@ spec:
   - name: image-external
     type: string
     description: "Fully qualified destination container image name, including tag."
-    default: quay.io/michard/cities-tekton
+    default: quay.io/michard/cities_tekton
   tasks:
   - name: fetch-repository
     taskRef:
