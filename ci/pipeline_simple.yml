@@ -5,19 +5,20 @@ metadata:
 spec:
   workspaces:
   - name: shared-workspace
+  - name: registry-credentials
   params:
   - name: git-url
     type: string
     description: "Url of the git repo for the code of deployment"
     default: https://github.com/smichard/cities_demo
-  - name: git-revision
-    type: string
-    description: "Revision to be used from repo of the code for deployment"
-    default: main
   - name: image
     type: string
     description: "Image to be build from the code and push to internal registry"
-    default: image-registry.openshift-image-registry.svc:5000/<namespace>/cities-pipeline-demo
+    default: image-registry.openshift-image-registry.svc:5000/demo/cities-pipeline-demo
+  - name: image-external
+    type: string
+    description: "Fully qualified destination container image name, including tag."
+    default: quay.io/michard/cities-tekton
   tasks:
   - name: fetch-repository
     taskRef:
@@ -40,8 +41,8 @@ spec:
     - name: deleteExisting
       value: "true"
     - name: revision
-      value: $(params.git-revision)
-  - name: build-image-internal
+      value: main
+  - name: build-image
     retries: 3
     taskRef:
       resolver: cluster
@@ -62,3 +63,34 @@ spec:
       workspace: shared-workspace
     runAfter:
     - fetch-repository
+  - name: get-git-tag
+    taskRef:
+      name: get-git-tag
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    runAfter:
+    - fetch-repository
+  - name: build-image-external
+    retries: 3
+    taskRef:
+      resolver: cluster
+      params:
+      - name: kind
+        value: task
+      - name: name
+        value: buildah
+      - name: namespace
+        value: openshift-pipelines
+    params:
+    - name: IMAGE
+      value: $(params.image-external):$(tasks.get-git-tag.results.build-tag)
+    - name: DOCKERFILE
+      value: "./Containerfile"
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    - name: dockerconfig
+      workspace: registry-credentials
+    runAfter:
+    - get-git-tag
