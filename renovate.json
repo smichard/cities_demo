@@ -2,9 +2,9 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
 
-  "customManagers": [
+  "regexManagers": [
     {
-      "customType": "tekton",
+      // Tekton
       "fileMatch": ["^ci/custom_tasks/.+\\.yml$"],
       "matchStrings": [
         "image:\\s*quay\\.io/michard/tekton_base_image:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
@@ -13,7 +13,7 @@
       "datasourceTemplate": "docker"
     },
     {
-      "customType": "deployment",
+      // K8S
       "fileMatch": ["^k8s/.+\\.yml$"],
       "matchStrings": [
         "image:\\s*quay\\.io/michard/cities_tekton:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
@@ -22,7 +22,7 @@
       "datasourceTemplate": "docker"
     },
     {
-      "customType": "devfileImage",
+      // Devfile
       "fileMatch": ["^\\.devfile\\.yaml$"],
       "matchStrings": [
         "image:\\s*quay\\.io/michard/devspaces_base_image:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
