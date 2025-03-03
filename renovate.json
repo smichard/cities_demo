@@ -3,6 +3,8 @@
   "extends": [
     "config:recommended"
   ],
+  // Force Renovate to never cache Docker image lookups
+  "dockerCacheTime": 0,
   "tekton": {
     "fileMatch": ["ci/custom_tasks/.+\\.yml$"]
   },
