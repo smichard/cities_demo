@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cities-demo-gitops-app
+  name: cities-demo-gitops
   namespace: openshift-gitops
 spec:
   project: default
