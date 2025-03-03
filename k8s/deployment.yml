@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: cities-demo-gitops
-  namespace: gitops
+  namespace: demo
   annotations:
     app.openshift.io/vcs-ref: main
     app.openshift.io/vcs-uri: 'https://github.com/smichard/cities_demo'

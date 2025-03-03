@@ -2,7 +2,7 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: cities-demo-gitops
-  namespace: gitops
+  namespace: demo
   labels:
     app: cities-demo-gitops
   annotations:
