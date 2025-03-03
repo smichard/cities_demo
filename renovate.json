@@ -3,8 +3,13 @@
   "extends": [
     "config:recommended"
   ],
-  // Force Renovate to never cache Docker image lookups
-  "dockerCacheTime": 0,
+  // Disable Docker caching for all Docker-related lookups
+  "hostRules": [
+    {
+      "hostType": "docker",
+      "disableCache": true
+    }
+  ],
   "tekton": {
     "fileMatch": ["ci/custom_tasks/.+\\.yml$"]
   },
