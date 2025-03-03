@@ -9,7 +9,7 @@
       "matchStrings": [
         "image:\\s*quay\\.io/michard/tekton_base_image:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
-      "depNameTemplate": "quay.io/myorg/tekton-image",
+      "depNameTemplate": "quay.io/michard/tekton_base_image",
       "datasourceTemplate": "docker"
     },
     {
@@ -18,7 +18,7 @@
       "matchStrings": [
         "image:\\s*quay\\.io/michard/cities_tekton:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
-      "depNameTemplate": "quay.io/myorg/k8s-image",
+      "depNameTemplate": "quay.io/michard/cities_tekton",
       "datasourceTemplate": "docker"
     },
     {
