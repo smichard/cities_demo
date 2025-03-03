@@ -1,9 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
-  "customManagers": [
+  "extends": ["config:recommended", ":dependencyDashboard"],
+
+  "regexManagers": [
     {
       "customType": "regex",
       "fileMatch": [
