@@ -6,7 +6,7 @@
   "tekton": {
     "fileMatch": ["ci/custom_tasks/.+\\.yml$"]
   },
-  "k8s": {
+  "deployment": {
     "fileMatch": ["k8s/.+\\.yml$"]
   },
   "customManagers": [
