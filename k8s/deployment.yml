@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: cities-demo-gitops
-          image: quay.io/michard/cities_tekton:0.5.51
+          image: quay.io/michard/cities_tekton:0.5.49
           ports:
             - containerPort: 8080
               protocol: TCP
