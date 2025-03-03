@@ -6,15 +6,47 @@
   "tekton": {
     "fileMatch": ["ci/custom_tasks/.+\\.yml$"]
   },
-  "deployment": {
-    "fileMatch": ["k8s/.+\\.yml$"]
-  },
   "customManagers": [
     {
       "customType": "regex",
       "fileMatch": [".devfile.yaml"],
       "matchStrings": [
         "image: quay\\.io/michard/devspaces_base_image:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "quay.io/michard/devspaces_base_image",
+      "datasourceTemplate": "docker"
+    }
+  ]
+}
+
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+
+  "customManagers": [
+    {
+      "customType": "tekton",
+      "fileMatch": ["^ci/custom_tasks/.+\\.yml$"],
+      "matchStrings": [
+        "image:\\s*quay\\.io/michard/tekton_base_image:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "quay.io/myorg/tekton-image",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "deployment",
+      "fileMatch": ["^k8s/.+\\.yml$"],
+      "matchStrings": [
+        "image:\\s*quay\\.io/michard/cities_tekton:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "quay.io/myorg/k8s-image",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "devfileImage",
+      "fileMatch": ["^\\.devfile\\.yaml$"],
+      "matchStrings": [
+        "image:\\s*quay\\.io/michard/devspaces_base_image:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
       "depNameTemplate": "quay.io/michard/devspaces_base_image",
       "datasourceTemplate": "docker"
