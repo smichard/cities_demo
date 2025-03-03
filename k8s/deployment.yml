@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: cities-demo-gitops
-          image: image-registry.openshift-image-registry.svc:5000/build-environment/cities-demo:0.5.22
+          image: quay.io/michard/cities:0.5.49
           ports:
             - containerPort: 8080
               protocol: TCP
