@@ -4,6 +4,48 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.55 (2025-03-05)
+
+### GitOps
+- :rocket: demo [`b916af5`](https://github.com/smichard/cities_demo/commit/b916af5)
+
+### Chore
+- update quay.io/michard/cities_tekton docker tag to v0.5.54 [`ea586ad`](https://github.com/smichard/cities_demo/commit/ea586ad)
+
+### Other
+- demo [`1e49d7c`](https://github.com/smichard/cities_demo/commit/1e49d7c)
+- demo [`5c63853`](https://github.com/smichard/cities_demo/commit/5c63853)
+- Merge pull request #46 from smichard/renovate/quay.io-michard-cities_tekton-0.x [`2da781b`](https://github.com/smichard/cities_demo/commit/2da781b)
+
+## 0.5.54 (2025-03-03)
+
+### Demo
+- :rocket: test [`a2a3613`](https://github.com/smichard/cities_demo/commit/a2a3613)
+
+## 0.5.53 (2025-03-03)
+
+### Documentation
+- :robot: changelog file generated [`bce5aa0`](https://github.com/smichard/cities_demo/commit/bce5aa0)
+
+### Test
+- :ambulance: testing [`6d823b3`](https://github.com/smichard/cities_demo/commit/6d823b3)
+
+### Demo
+- :rocket: pipeline demo [`d11296a`](https://github.com/smichard/cities_demo/commit/d11296a)
+
+### Build
+- :rocket: renovate recovered [`0038a93`](https://github.com/smichard/cities_demo/commit/0038a93)
+- :rocket: test new renovat configuration [`85b8dd8`](https://github.com/smichard/cities_demo/commit/85b8dd8)
+- :rocket: testing new renovate config [`130d2b1`](https://github.com/smichard/cities_demo/commit/130d2b1)
+
+### Chore
+- update quay.io/michard/cities_tekton docker tag to v0.5.52 [`5dae91e`](https://github.com/smichard/cities_demo/commit/5dae91e)
+- update quay.io/michard/cities_tekton docker tag to v0.5.51 [`586a022`](https://github.com/smichard/cities_demo/commit/586a022)
+
+### Other
+- Merge pull request #45 from smichard/renovate/quay.io-michard-cities_tekton-0.x [`93a181d`](https://github.com/smichard/cities_demo/commit/93a181d)
+- Merge pull request #44 from smichard/renovate/quay.io-michard-cities_tekton-0.x [`256ed22`](https://github.com/smichard/cities_demo/commit/256ed22)
+
 ## 0.5.52 (2025-03-03)
 
 ### Feature
