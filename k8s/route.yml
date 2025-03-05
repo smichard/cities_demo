@@ -8,7 +8,7 @@ metadata:
   annotations:
     openshift.io/host.generated: 'true'
 spec:
-  host: cities-demo-gitops.apps.cluster-xdwfb.dynamic.redhatworkshops.io
+  host: cities-demo-gitops.apps.cluster-rdd57.dynamic.redhatworkshops.io
   to:
     kind: Service
     name: cities-demo-gitops
