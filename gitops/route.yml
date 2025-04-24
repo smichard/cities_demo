@@ -1,17 +1,17 @@
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: cities-demo
+  name: cities-demo-gitops
   namespace: demo
   labels:
-    app: cities-demo
+    app: cities-demo-gitops
   annotations:
     openshift.io/host.generated: 'true'
 spec:
   host:
   to:
     kind: Service
-    name: cities-demo
+    name: cities-demo-gitops
   port:
     targetPort: 8080-tcp
   tls:

@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: cities-demo
+  name: cities-demo-gitops
   namespace: demo
   annotations:
     app.openshift.io/vcs-ref: main
@@ -11,15 +11,15 @@ spec:
   replicas: 8
   selector:
     matchLabels:
-      app: cities-demo
+      app: cities-demo-gitops
   template:
     metadata:
       labels:
-        app: cities-demo
-        deployment: cities-demo
+        app: cities-demo-gitops
+        deployment: cities-demo-gitops
     spec:
       containers:
-        - name: cities-demo
+        - name: cities-demo-gitops
           image: quay.io/michard/cities_tekton:0.5.50
           ports:
             - containerPort: 8080
