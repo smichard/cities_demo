@@ -4,6 +4,125 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.55 (2025-03-05)
+
+### GitOps
+- :rocket: demo [`b916af5`](https://github.com/smichard/cities_demo/commit/b916af5)
+
+### Chore
+- update quay.io/michard/cities_tekton docker tag to v0.5.54 [`ea586ad`](https://github.com/smichard/cities_demo/commit/ea586ad)
+
+### Other
+- demo [`1e49d7c`](https://github.com/smichard/cities_demo/commit/1e49d7c)
+- demo [`5c63853`](https://github.com/smichard/cities_demo/commit/5c63853)
+- Merge pull request #46 from smichard/renovate/quay.io-michard-cities_tekton-0.x [`2da781b`](https://github.com/smichard/cities_demo/commit/2da781b)
+
+## 0.5.54 (2025-03-03)
+
+### Demo
+- :rocket: test [`a2a3613`](https://github.com/smichard/cities_demo/commit/a2a3613)
+
+## 0.5.53 (2025-03-03)
+
+### Documentation
+- :robot: changelog file generated [`bce5aa0`](https://github.com/smichard/cities_demo/commit/bce5aa0)
+
+### Test
+- :ambulance: testing [`6d823b3`](https://github.com/smichard/cities_demo/commit/6d823b3)
+
+### Demo
+- :rocket: pipeline demo [`d11296a`](https://github.com/smichard/cities_demo/commit/d11296a)
+
+### Build
+- :rocket: renovate recovered [`0038a93`](https://github.com/smichard/cities_demo/commit/0038a93)
+- :rocket: test new renovat configuration [`85b8dd8`](https://github.com/smichard/cities_demo/commit/85b8dd8)
+- :rocket: testing new renovate config [`130d2b1`](https://github.com/smichard/cities_demo/commit/130d2b1)
+
+### Chore
+- update quay.io/michard/cities_tekton docker tag to v0.5.52 [`5dae91e`](https://github.com/smichard/cities_demo/commit/5dae91e)
+- update quay.io/michard/cities_tekton docker tag to v0.5.51 [`586a022`](https://github.com/smichard/cities_demo/commit/586a022)
+
+### Other
+- Merge pull request #45 from smichard/renovate/quay.io-michard-cities_tekton-0.x [`93a181d`](https://github.com/smichard/cities_demo/commit/93a181d)
+- Merge pull request #44 from smichard/renovate/quay.io-michard-cities_tekton-0.x [`256ed22`](https://github.com/smichard/cities_demo/commit/256ed22)
+
+## 0.5.52 (2025-03-03)
+
+### Feature
+- :bug: update renovate config [`e8f56a3`](https://github.com/smichard/cities_demo/commit/e8f56a3)
+
+### Demo
+- :rocket: pipeline demo [`8d74343`](https://github.com/smichard/cities_demo/commit/8d74343)
+
+### Build
+- :bug: renovate configuration [`6924785`](https://github.com/smichard/cities_demo/commit/6924785)
+- :sparkles: renovate config file added [`8f8bd2a`](https://github.com/smichard/cities_demo/commit/8f8bd2a)
+- :fire: removed renovate configuration [`d1a5418`](https://github.com/smichard/cities_demo/commit/d1a5418)
+
+### Chore
+- update quay.io/michard/cities_tekton docker tag to v0.5.51 [`75577d3`](https://github.com/smichard/cities_demo/commit/75577d3)
+
+### Other
+- Merge pull request #43 from smichard/renovate/quay.io-michard-cities_tekton-0.x [`400fc32`](https://github.com/smichard/cities_demo/commit/400fc32)
+
+## 0.5.51 (2025-03-03)
+
+### GitOps
+- :rocket: demo [`96f2ec8`](https://github.com/smichard/cities_demo/commit/96f2ec8)
+- :rocket: demo [`2a1493f`](https://github.com/smichard/cities_demo/commit/2a1493f)
+- :rocket: demo [`4ee3d31`](https://github.com/smichard/cities_demo/commit/4ee3d31)
+- ::rocket: deployment [`919a2d2`](https://github.com/smichard/cities_demo/commit/919a2d2)
+
+### Demo
+- :rocket: pipeline demo [`3044e55`](https://github.com/smichard/cities_demo/commit/3044e55)
+
+### Chore
+- migrate config renovate.json [`48c5679`](https://github.com/smichard/cities_demo/commit/48c5679)
+- migrate config renovate.json [`2ccd587`](https://github.com/smichard/cities_demo/commit/2ccd587)
+
+### Other
+- Merge pull request #42 from smichard/renovate/migrate-config [`d965968`](https://github.com/smichard/cities_demo/commit/d965968)
+- rennovate [`bb497e5`](https://github.com/smichard/cities_demo/commit/bb497e5)
+- Merge pull request #41 from smichard/renovate/migrate-config [`0f8dcb7`](https://github.com/smichard/cities_demo/commit/0f8dcb7)
+
+## 0.5.50 (2025-03-03)
+
+### Bug Fixes
+- :sparkles: devfile image updated [`fb492fe`](https://github.com/smichard/cities_demo/commit/fb492fe)
+- :bug: rennovate configuration [`a0ac187`](https://github.com/smichard/cities_demo/commit/a0ac187)
+- :bug: rennovate configuration [`aae9005`](https://github.com/smichard/cities_demo/commit/aae9005)
+- :bug: rennovate configuration [`680c1b2`](https://github.com/smichard/cities_demo/commit/680c1b2)
+- :bug: rennovate configuration adjusted [`2ba8880`](https://github.com/smichard/cities_demo/commit/2ba8880)
+- :fire: removed unnecessary files [`89429ae`](https://github.com/smichard/cities_demo/commit/89429ae)
+
+### Documentation
+- :robot: changelog file generated [`f3c6365`](https://github.com/smichard/cities_demo/commit/f3c6365)
+
+### GitOps
+- :rocket: route updated [`2f55c98`](https://github.com/smichard/cities_demo/commit/2f55c98)
+- :rocket: registry adjusted [`3cf149e`](https://github.com/smichard/cities_demo/commit/3cf149e)
+- :rocket: quay registry adjusted [`07eeff9`](https://github.com/smichard/cities_demo/commit/07eeff9)
+- :rocket: deployment files adjusted [`ea500d3`](https://github.com/smichard/cities_demo/commit/ea500d3)
+
+### Demo
+- :rocket: pipeline demo [`13a38f3`](https://github.com/smichard/cities_demo/commit/13a38f3)
+- :rocket: gitops demo [`202964f`](https://github.com/smichard/cities_demo/commit/202964f)
+
+### Build
+- :rocket: pipeline adjusted for repository name [`417cb56`](https://github.com/smichard/cities_demo/commit/417cb56)
+- :bug: rennovate configuration [`0c9c19b`](https://github.com/smichard/cities_demo/commit/0c9c19b)
+- :sparkles: rennovate configuration updated [`9bb4ad9`](https://github.com/smichard/cities_demo/commit/9bb4ad9)
+- :rocket: simple pipeline finallzed [`ddb2308`](https://github.com/smichard/cities_demo/commit/ddb2308)
+
+### Chore
+- update smichard/conventional_changelog action to v2.0.10 [`5c6f3d1`](https://github.com/smichard/cities_demo/commit/5c6f3d1)
+
+### Other
+- Merge branch 'main' of https://github.com/smichard/cities_demo [`7e9c04d`](https://github.com/smichard/cities_demo/commit/7e9c04d)
+- Merge pull request #39 from smichard/renovate/smichard-conventional_changelog-2.x [`509a416`](https://github.com/smichard/cities_demo/commit/509a416)
+- Update deployment.yml [`ca23a5f`](https://github.com/smichard/cities_demo/commit/ca23a5f)
+- Merge branch 'main' of https://github.com/smichard/cities_demo [`64da899`](https://github.com/smichard/cities_demo/commit/64da899)
+
 ## 0.5.49 (2025-02-28)
 
 ### Documentation

@@ -8,7 +8,7 @@ metadata:
     app.openshift.io/vcs-uri: 'https://github.com/smichard/cities_demo'
     ci.buildid: '0.5.22'
 spec:
-  replicas: 8
+  replicas: 9
   selector:
     matchLabels:
       app: cities-demo
@@ -19,8 +19,8 @@ spec:
         deployment: cities-demo
     spec:
       containers:
-        - name: cities-demo
-          image: quay.io/michard/cities_tekton:0.5.50
+        - name: cities-demo-gitops
+          image: quay.io/michard/cities_tekton:0.5.55
           ports:
             - containerPort: 8080
               protocol: TCP

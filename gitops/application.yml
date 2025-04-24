@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/smichard/cities_demo'
     targetRevision: main
-    path: k8s
+    path: gitops
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: demo
