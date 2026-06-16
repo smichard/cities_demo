@@ -4,6 +4,34 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.58 (2026-05-26)
+
+### Documentation
+- :robot: changelog file generated [`c9634fc`](https://github.com/smichard/cities_demo/commit/c9634fc)
+
+### Other
+- Merge branch 'main' of https://github.com/smichard/cities_demo [`84e0de1`](https://github.com/smichard/cities_demo/commit/84e0de1)
+- website updated [`e964285`](https://github.com/smichard/cities_demo/commit/e964285)
+
+## 0.5.57 (2026-05-26)
+
+### Other
+- ci updated [`707f906`](https://github.com/smichard/cities_demo/commit/707f906)
+- additional city added [`6daa6b0`](https://github.com/smichard/cities_demo/commit/6daa6b0)
+- wroclaw added [`5002bdc`](https://github.com/smichard/cities_demo/commit/5002bdc)
+
+## 0.5.56 (2025-04-24)
+
+### Documentation
+- :robot: changelog file generated [`2058071`](https://github.com/smichard/cities_demo/commit/2058071)
+
+### Build
+- :rocket: split k8s and GitOps files [`b2ae0a4`](https://github.com/smichard/cities_demo/commit/b2ae0a4)
+
+### Other
+- Merge branch 'main' of https://github.com/smichard/cities_demo [`cec2bcd`](https://github.com/smichard/cities_demo/commit/cec2bcd)
+- demo [`386709e`](https://github.com/smichard/cities_demo/commit/386709e)
+
 ## 0.5.55 (2025-03-05)
 
 ### GitOps
