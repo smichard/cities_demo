@@ -88,23 +88,3 @@ jobs:
         platforms: linux/amd64,linux/arm64
         push: true
         tags: quay.io/michard/cities:${{ env.TAG }},quay.io/michard/cities:latest
-
-
-  notification:
-    needs: build_and_push
-    runs-on: ubuntu-latest
-    steps:
-      - name: notification
-        uses: s3krit/matrix-message-action@v0.0.3
-        with:
-          room_id: ${{ secrets.MATRIX_ROOM_ID }}
-          access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
-          server: ${{ secrets.MATRIX_SERVER }}
-          message: |
-            "${{ github.repository }}":<br />
-            **new updates pushed to the repository — new container image build**<br />
-            commit message: **${{ github.event.head_commit.message }}** <br />
-            contributor: **${{ github.actor }}** <br />
-            commit sha: **${{ github.sha }}** <br />
-            commit history: **[link](https://github.com/${{ github.repository }}/commits/main)** <br />
-            image registry: **[Quay.io](https://quay.io/repository/michard/cities?tab=tags)** <br />
