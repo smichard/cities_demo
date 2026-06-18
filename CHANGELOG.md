@@ -4,6 +4,36 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.63 (2026-06-18)
+
+### Chore
+- update smichard/conventional_changelog action to v2.0.11 [`5320136`](https://github.com/smichard/cities_demo/commit/5320136)
+
+## 0.5.62 (2026-06-16)
+
+### Other
+- wroclaw demo adjusted [`2522125`](https://github.com/smichard/cities_demo/commit/2522125)
+- Merge branch 'main' of https://github.com/smichard/cities_demo [`df3410f`](https://github.com/smichard/cities_demo/commit/df3410f)
+- matrix removed [`b565dc3`](https://github.com/smichard/cities_demo/commit/b565dc3)
+
+## 0.5.61 (2026-05-28)
+
+### Chore
+- update docker/build-push-action action to v7 [`2861d91`](https://github.com/smichard/cities_demo/commit/2861d91)
+
+## 0.5.60 (2026-05-28)
+
+### Chore
+- update smichard/conventional_changelog action to v2.0.11 [`ba40849`](https://github.com/smichard/cities_demo/commit/ba40849)
+
+## 0.5.59 (2026-05-27)
+
+### Documentation
+- :robot: changelog file generated [`8828954`](https://github.com/smichard/cities_demo/commit/8828954)
+
+### Chore
+- update docker/setup-qemu-action action to v4 [`5d818eb`](https://github.com/smichard/cities_demo/commit/5d818eb)
+
 ## 0.5.58 (2026-05-26)
 
 ### Documentation
