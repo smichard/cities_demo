@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.5.67 (2026-07-12)
+
+### Documentation
+- :robot: changelog file generated [`b5045a7`](https://github.com/smichard/cities_demo/commit/b5045a7)
+
+### Other
+- Update anothrNick/github-tag-action action to v1.75.0 [`1a2a871`](https://github.com/smichard/cities_demo/commit/1a2a871)
+
 ## 0.5.66 (2026-07-07)
 
 ### Other
